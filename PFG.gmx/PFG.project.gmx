@@ -5,15 +5,31 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\sprBattleMinimapLine</sprite>
+    <sprite>sprites\sprTank1</sprite>
+    <sprite>sprites\sprMonster1</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="BattleMinimap">
+      <script>scripts\scrAddTankToBattleMinimap.gml</script>
+    </scripts>
+  </scripts>
   <objects name="objects">
     <object>objects\objGame</object>
+    <object>objects\objTestGame</object>
+    <object>objects\objBattleMinimap</object>
+    <object>objects\objTank1</object>
+    <object>objects\objMonsterMini</object>
   </objects>
+  <rooms name="rooms">
+    <room>rooms\roomGameMockup</room>
+  </rooms>
   <constants number="3">
-    <constant name="GM_build_date">0</constant>
-    <constant name="GM_version">0</constant>
+    <constant name="GM_build_date">41904.1841271643</constant>
+    <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
   </constants>
   <help>
