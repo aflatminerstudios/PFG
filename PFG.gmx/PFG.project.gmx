@@ -6,6 +6,9 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprites name="BlockGame">
+      <sprite>sprites\sprBlock</sprite>
+    </sprites>
     <sprite>sprites\sprBattleMinimapLine</sprite>
     <sprite>sprites\sprTank1</sprite>
     <sprite>sprites\sprMonster1</sprite>
@@ -16,9 +19,26 @@
     <scripts name="BattleMinimap">
       <script>scripts\scrAddTankToBattleMinimap.gml</script>
     </scripts>
+    <scripts name="BlockGame">
+      <script>scripts\scrBlockFall.gml</script>
+      <script>scripts\scrBlockAttackMonster.gml</script>
+      <script>scripts\scrCreateBlockBoard.gml</script>
+      <script>scripts\scrBlockGainPower.gml</script>
+    </scripts>
+    <script>scripts\scrGridToScreen.gml</script>
+    <script>scripts\scrCheckLine.gml</script>
+    <script>scripts\scrSendAttack.gml</script>
+    <script>scripts\scrAttackGame.gml</script>
+    <script>scripts\scrGainPower.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\objGame</object>
+    <object>objects\objBlockGame</object>
+    <objects name="BlockGame">
+      <object>objects\objBlock</object>
+      <object>objects\objFallingBlock</object>
+      <object>objects\objActiveBlock</object>
+    </objects>
     <object>objects\objTestGame</object>
     <object>objects\objBattleMinimap</object>
     <object>objects\objTank1</object>
@@ -28,7 +48,7 @@
     <room>rooms\roomGameMockup</room>
   </rooms>
   <constants number="3">
-    <constant name="GM_build_date">41904.1841271643</constant>
+    <constant name="GM_build_date">41906.7526268634</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
   </constants>
