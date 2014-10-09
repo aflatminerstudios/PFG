@@ -2,6 +2,13 @@
 
 var game = argument0;
 
+game.starPower = 0;
+game.gameAlive = true;
+
+with (objBlock) {
+    instance_destroy();
+}
+
 var chance = 0.5;
 
 for (var j = 0; j < gridYMax; ++j) {

@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///LOOK IN HERE FOR NOTES
-
-/// Setup default game variables
+            <string>/// Setup default game variables
 gameName = "Block Game"
 character = noone;
 baseSpeed = 5;
@@ -44,6 +42,9 @@ gridYMax = 15;
 blockXSize = 32;
 blockYSize = 32;
 
+gameAlive = true;
+starPower = 0;
+
 // Functions called outside the Game Object;
 resetGame = scrCreateBlockBoard; // set by game
 takeDamage = scrBlockFall; // set by game
@@ -56,6 +57,30 @@ randomize();
 scrCreateBlockBoard(self);
 
 show_debug_message("objBlockGame Create 1 finished.");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>curentSpeed = baseSpeed;
+starPower = 0;
 </string>
           </argument>
         </arguments>
@@ -111,7 +136,7 @@ with (objBlock) {
             <kind>1</kind>
             <string>///Create new falling blocks
 
-if (!instance_exists(objActiveBlock)) {
+if (!instance_exists(objActiveBlock) &amp;&amp; gameAlive) {
     var i = irandom(gridXMax - 1);
     var coords = scrGridToScreen(i, gridYMax, self);
     var b = instance_create(coords[0], coords[1], objActiveBlock);
@@ -236,8 +261,36 @@ if (!instance_exists(objActiveBlock)) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (!gameAlive) {
+    depth = -10;
+    draw_set_alpha(0.5);
+    draw_set_color(c_red);
+    draw_rectangle(x, y, x + fieldWidth, y + fieldHeight, false);
+    draw_set_alpha(1);
+    depth = 20;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
-    <event eventtype="10" enumb="17">
+    <event eventtype="10" enumb="18">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -256,9 +309,39 @@ if (!instance_exists(objActiveBlock)) {
             <kind>1</kind>
             <string>///gain random star power
 
-r = irandom(100);
+r = irandom(50);
 
 scrGainPower(self, r);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="17">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Use star power
+
+if (gameAlive &amp;&amp; starPower &gt; 1) {
+    currentSpeed = currentSpeed / 2;
+    alarm[0] = starPower/10 * room_speed
+} else if (starPower &gt; 100) {
+    scrResetGame(self);
+}
 </string>
           </argument>
         </arguments>

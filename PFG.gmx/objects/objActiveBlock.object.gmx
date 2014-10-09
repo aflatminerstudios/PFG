@@ -58,8 +58,13 @@ if (host != noone) {
 
 if (host != noone) {       
     if (position_meeting(x, y + 1, objBlock) || y = host.y + host.fieldHeight) {
-        
+     
+        if (y &lt;= (host.y + 10)) {
+            host.gameAlive = false;            
+            show_debug_message("Lost block game");
+        }    
         instance_change(objBlock, false);
+       
         
     } else {
         if (keyboard_check_pressed(vk_left)) {
