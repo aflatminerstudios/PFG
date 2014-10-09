@@ -22,11 +22,11 @@
     <scripts name="BlockGame">
       <script>scripts\scrBlockFall.gml</script>
       <script>scripts\scrBlockAttackMonster.gml</script>
+      <script>scripts\scrCheckLine.gml</script>
       <script>scripts\scrCreateBlockBoard.gml</script>
       <script>scripts\scrBlockGainPower.gml</script>
     </scripts>
     <script>scripts\scrGridToScreen.gml</script>
-    <script>scripts\scrCheckLine.gml</script>
     <script>scripts\scrSendAttack.gml</script>
     <script>scripts\scrAttackGame.gml</script>
     <script>scripts\scrGainPower.gml</script>
@@ -43,12 +43,14 @@
     <object>objects\objBattleMinimap</object>
     <object>objects\objTank1</object>
     <object>objects\objMonsterMini</object>
+    <object>objects\objMonster</object>
+    <object>objects\objAttackObject</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomGameMockup</room>
   </rooms>
   <constants number="3">
-    <constant name="GM_build_date">41906.7526268634</constant>
+    <constant name="GM_build_date">41921.6362155093</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
   </constants>

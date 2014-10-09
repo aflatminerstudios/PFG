@@ -11,7 +11,6 @@ for (var i = 0; i < loopMax; ++i) {
     var coords = scrGridToScreen(i, 0, game);
     
     if (instance_position(coords[0], block.y - 3, objBlock) == noone) {
-    show_debug_message("PROBLEM AT " + string(i));
         found = false;
     }
 }
