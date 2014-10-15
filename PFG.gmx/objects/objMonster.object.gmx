@@ -126,8 +126,8 @@ var line = objBattleMinimap;
 
 with (objMonsterMini) {
 
-    monster = self;
-    targetX = line.x + line.sprite_width;
+    var monster = self;
+    var targetX = line.x + line.sprite_width;
     if (x &gt;= targetX) {
         show_message("Oh no! The monster wins! You suck! Try again.");
         room_restart();

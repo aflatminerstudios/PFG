@@ -12,6 +12,7 @@
     <sprite>sprites\sprBattleMinimapLine</sprite>
     <sprite>sprites\sprTank1</sprite>
     <sprite>sprites\sprMonster1</sprite>
+    <sprite>sprites\sprKwaken</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -46,6 +47,7 @@
     <object>objects\objMonsterMini</object>
     <object>objects\objMonster</object>
     <object>objects\objAttackObject</object>
+    <object>objects\objKwaken</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomGameMockup</room>

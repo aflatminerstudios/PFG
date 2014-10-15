@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentSpeed = 0.03*(room_speed/60.0);
+            <string>currentSpeed = 0.08*(room_speed/60.0);
 depth = -2;
 </string>
           </argument>

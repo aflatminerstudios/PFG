@@ -56,6 +56,7 @@
     <instance objName="objMonsterMini" x="266" y="32" name="inst_59328955" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlockGame" x="328" y="96" name="inst_E91FAD2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonster" x="249" y="0" name="inst_EA56EC66" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objKwaken" x="-23" y="256" name="inst_29F12028" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
