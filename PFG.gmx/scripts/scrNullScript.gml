@@ -1,0 +1,1 @@
+///scrNullScript(game)

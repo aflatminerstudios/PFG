@@ -39,11 +39,11 @@ currentDifficulty = baseDifficulty;
 //fieldHeight = 500;
 
 // Functions called outside the Game Object;
-resetGame = null; // set by game
-takeDamage = null; // set by game
-gainStarPower = null; // set by game
-addScore = null; // set by player
-sendAttack = null; // set by game
+resetGame = scrNullScript; // set by game
+sendMonsterAttack = scrNullScript; // set by game
+gainStarPower = scrNullScript; // set by game
+addScore = scrNullScript; // set by player
+sendAttack = scrNullScript; // set by game
 
 show_debug_message("objTestGame Create 1 finished.");
 

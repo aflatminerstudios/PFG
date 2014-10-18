@@ -32,9 +32,11 @@
     <script>scripts\scrAttackGame.gml</script>
     <script>scripts\scrGainPower.gml</script>
     <script>scripts\scrResetGame.gml</script>
+    <script>scripts\scrNullScript.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\objGame</object>
+    <object>objects\objColsGame</object>
     <object>objects\objBlockGame</object>
     <objects name="BlockGame">
       <object>objects\objBlock</object>

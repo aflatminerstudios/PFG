@@ -47,7 +47,7 @@ starPower = 0;
 
 // Functions called outside the Game Object;
 resetGame = scrCreateBlockBoard; // set by game
-takeDamage = scrBlockFall; // set by game
+sendMonsterAttack = scrBlockFall; // set by game
 gainStarPower = scrBlockGainPower; // set by game
 addScore = null; // set by player
 sendAttack = scrBlockAttackMonster; // set by game
