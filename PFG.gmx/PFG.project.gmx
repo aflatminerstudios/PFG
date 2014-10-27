@@ -40,30 +40,35 @@
   <objects name="objects">
     <object>objects\objBlock</object>
     <object>objects\objGame</object>
-    <object>objects\objBlockGame</object>
-    <object>objects\objColsGame</object>
+    <objects name="TestGame">
+      <object>objects\objTestGame</object>
+    </objects>
     <objects name="BlockGame">
+      <object>objects\objBlockGame</object>
       <object>objects\objFallingBlock</object>
       <object>objects\objActiveBlock</object>
     </objects>
     <objects name="ColsGame">
+      <object>objects\objColsGame</object>
       <object>objects\objColumn</object>
       <object>objects\objColBlock</object>
       <object>objects\objColBlockSettled</object>
     </objects>
-    <object>objects\objTestGame</object>
-    <object>objects\objBattleMinimap</object>
-    <object>objects\objTank1</object>
-    <object>objects\objMonsterMini</object>
+    <objects name="BattleMinimap">
+      <object>objects\objBattleMinimap</object>
+      <object>objects\objTank1</object>
+      <object>objects\objMonsterMini</object>
+    </objects>
     <object>objects\objMonster</object>
     <object>objects\objAttackObject</object>
     <object>objects\objKwaken</object>
+    <object>objects\objGameManager</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomGameMockup</room>
   </rooms>
   <constants number="3">
-    <constant name="GM_build_date">41921.8057339699</constant>
+    <constant name="GM_build_date">41939.789691412</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
   </constants>
