@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,15 +28,14 @@
             <string>/// Setup default game variables
 gameName = "Default Game Name"
 character = noone;
-baseSpeed = 0;
-baseDifficulty = 0;
-currentSpeed = 0;
-currentDifficulty = 0;
+baseSpeed = 5;
+baseDifficulty = 1;
+currentSpeed = 5;
+currentDifficulty = 1;
 
-fieldWidth = 200;
-fieldHeight = 500;
+fieldWidth = 256;
+fieldHeight = 480;
 
-//////////Need to standardize somehow////////////
 gridXMax = 8;
 gridYMax = 15;
 blockXSize = 32;
@@ -46,7 +45,7 @@ gameAlive = true;
 starPower = 0;
 
 // Functions called outside the Game Object;
-resetGame = scrNullScript; // set by game
+resetGame = scrCreateColsBoard; // set by game
 sendMonsterAttack = scrNullScript; // set by game
 gainStarPower = scrNullScript; // set by game
 addScore = scrNullScript; // set by player
@@ -54,6 +53,206 @@ sendAttack = scrNullScript; // set by game
 
 
 show_debug_message("objGame Create 1 finished.");
+
+randomize();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Create new column
+
+if (!instance_exists(objColumn) &amp;&amp; gameAlive) {
+    var i = irandom(gridXMax - 1);
+    var coords = scrGridToScreen(i, gridYMax, self);
+    var c = instance_create(coords[0], coords[1], objColumn);
+    c.host = self.id;
+    c.alarm[0] = (room_speed / 2)/currentSpeed + 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for matches
+
+with (objColBlockSettled) {
+    scrColsCheckMatches(self.id);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>524</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_color</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>13</kind>
+            <string>16776960</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>511</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_rectangle</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>-1</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>-1</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>fieldWidth + 1</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>fieldHeight + 1</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>524</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_color</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>13</kind>
+            <string>8421504</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>511</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_rectangle</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>fieldWidth</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>fieldHeight</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (!gameAlive) {
+    depth = -10;
+    draw_set_alpha(0.5);
+    draw_set_color(c_red);
+    draw_rectangle(x, y, x + fieldWidth, y + fieldHeight, false);
+    draw_set_alpha(1);
+    depth = 20;
+}
 </string>
           </argument>
         </arguments>

@@ -36,6 +36,11 @@ currentDifficulty = 0;
 fieldWidth = 200;
 fieldHeight = 500;
 
+gridXMax = 8;
+gridYMax = 15;
+blockXSize = 32;
+blockYSize = 32;
+
 gameAlive = true;
 starPower = 0;
 

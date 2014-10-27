@@ -6,12 +6,10 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprites name="BlockGame">
-      <sprite>sprites\sprBlock</sprite>
-    </sprites>
     <sprite>sprites\sprBattleMinimapLine</sprite>
     <sprite>sprites\sprTank1</sprite>
     <sprite>sprites\sprMonster1</sprite>
+    <sprite>sprites\sprBlock</sprite>
     <sprite>sprites\sprKwaken</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -27,6 +25,11 @@
       <script>scripts\scrCreateBlockBoard.gml</script>
       <script>scripts\scrBlockGainPower.gml</script>
     </scripts>
+    <scripts name="ColsGame">
+      <script>scripts\scrMatchFound.gml</script>
+      <script>scripts\scrCreateColsBoard.gml</script>
+      <script>scripts\scrColsCheckMatches.gml</script>
+    </scripts>
     <script>scripts\scrGridToScreen.gml</script>
     <script>scripts\scrSendAttack.gml</script>
     <script>scripts\scrAttackGame.gml</script>
@@ -35,13 +38,18 @@
     <script>scripts\scrNullScript.gml</script>
   </scripts>
   <objects name="objects">
+    <object>objects\objBlock</object>
     <object>objects\objGame</object>
-    <object>objects\objColsGame</object>
     <object>objects\objBlockGame</object>
+    <object>objects\objColsGame</object>
     <objects name="BlockGame">
-      <object>objects\objBlock</object>
       <object>objects\objFallingBlock</object>
       <object>objects\objActiveBlock</object>
+    </objects>
+    <objects name="ColsGame">
+      <object>objects\objColumn</object>
+      <object>objects\objColBlock</object>
+      <object>objects\objColBlockSettled</object>
     </objects>
     <object>objects\objTestGame</object>
     <object>objects\objBattleMinimap</object>

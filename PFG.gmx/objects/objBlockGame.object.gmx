@@ -49,7 +49,7 @@ starPower = 0;
 resetGame = scrCreateBlockBoard; // set by game
 sendMonsterAttack = scrBlockFall; // set by game
 gainStarPower = scrBlockGainPower; // set by game
-addScore = null; // set by player
+addScore = scrNullScript; // set by player
 sendAttack = scrBlockAttackMonster; // set by game
 
 //Needed for just this game at the moment
@@ -79,7 +79,7 @@ show_debug_message("objBlockGame Create 1 finished.");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>curentSpeed = baseSpeed;
+            <string>currentSpeed = baseSpeed;
 starPower = 0;
 </string>
           </argument>
