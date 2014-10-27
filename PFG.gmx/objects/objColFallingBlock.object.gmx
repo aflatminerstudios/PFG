@@ -25,10 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Check for open space below
+            <string>///Check for block below
 
-if (!position_meeting(x, y + 1, objColBlockSettled) &amp;&amp; y != host.y + host.fieldHeight) {
-    instance_change(objColFallingBlock, false);    
+if (position_meeting(x, y + 1, objColBlockSettled) || y = host.y + host.fieldHeight) {
+    
+        if (y &lt;= (host.y + 10)) {
+            host.gameAlive = false;            
+            show_debug_message("Lost block game");
+        }   
+        instance_change(objColBlockSettled, false);
 }
 </string>
           </argument>

@@ -87,7 +87,7 @@ block3.host = host;
           <argument>
             <kind>1</kind>
             <string>///Move block down each tick
-
+/*
 if (host != noone) {
     y += 8;
 
@@ -95,6 +95,7 @@ if (host != noone) {
 } else {
     alarm[0] = 1;
 }
+*/
 </string>
           </argument>
         </arguments>
