@@ -55,6 +55,48 @@ sendAttack = scrNullScript; // set by game
 show_debug_message("objColsGame Create 1 finished.");
 
 randomize();
+alarm[0] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move items down each tick
+
+var g = self.id;
+
+with (objColumn) {
+    if (host != noone &amp;&amp; host.id = g) {
+        y += 8;
+    } 
+}
+
+
+with (objColFallingBlock) {
+    if (host != noone &amp;&amp; host.id = g) {
+        y += 8;
+    } 
+}
+
+alarm[0] = (room_speed / 5)/currentSpeed;
+
 </string>
           </argument>
         </arguments>
@@ -84,7 +126,6 @@ if (!instance_exists(objColumn) &amp;&amp; gameAlive) {
     var coords = scrGridToScreen(i, gridYMax, self);
     var c = instance_create(coords[0], coords[1], objColumn);
     c.host = self.id;
-    c.alarm[0] = (room_speed / 2)/currentSpeed + 1;
 }
 </string>
           </argument>

@@ -1,17 +1,18 @@
-///scrMatchFound(hostBlock, match1, match2)
+///scrMatchFound(hostBlock, matches[array of blocks])
 
 var hostBlock = argument0;
-var match1 = argument1;
-var match2 = argument2;
+var matches = argument1;
+
 
 scrSendAttack(host);
 
-with (match1) {
-    instance_destroy();
-}
-
-with (match2) {
-    instance_destroy();
+if (is_array(matches)) {
+    l = array_length_1d(matches);
+    for (i = 0; i < l; ++i) {
+        with (matches[i]) {
+            instance_destroy();
+        }
+    }
 }
 
 with (hostBlock) {

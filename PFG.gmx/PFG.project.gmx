@@ -50,6 +50,7 @@
     </objects>
     <objects name="ColsGame">
       <object>objects\objColsGame</object>
+      <object>objects\objColFallingBlock</object>
       <object>objects\objColumn</object>
       <object>objects\objColBlock</object>
       <object>objects\objColBlockSettled</object>
