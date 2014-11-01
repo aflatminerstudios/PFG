@@ -1,0 +1,3 @@
+///scrColsAttack()
+
+scrCreateWall(objWall);

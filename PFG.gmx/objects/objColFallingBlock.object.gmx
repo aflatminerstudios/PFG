@@ -28,8 +28,7 @@
             <string>///Check for block below
 
 if (position_meeting(x, y + 1, objColBlockSettled) || y = host.y + host.fieldHeight) {
-    
-        if (y &lt;= (host.y + 10)) {
+        if ((y - sprite_height) &lt;= host.y) {
             host.gameAlive = false;            
             show_debug_message("Lost block game");
         }   

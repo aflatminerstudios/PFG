@@ -11,12 +11,15 @@
     <sprite>sprites\sprMonster1</sprite>
     <sprite>sprites\sprBlock</sprite>
     <sprite>sprites\sprKwaken</sprite>
+    <sprite>sprites\sprWall</sprite>
+    <sprite>sprites\sprColumn</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="BattleMinimap">
       <script>scripts\scrAddTankToBattleMinimap.gml</script>
+      <script>scripts\scrCreateWall.gml</script>
     </scripts>
     <scripts name="BlockGame">
       <script>scripts\scrBlockFall.gml</script>
@@ -28,7 +31,9 @@
     <scripts name="ColsGame">
       <script>scripts\scrMatchFound.gml</script>
       <script>scripts\scrCreateColsBoard.gml</script>
+      <script>scripts\scrColsCreateBlock.gml</script>
       <script>scripts\scrColsCheckMatches.gml</script>
+      <script>scripts\scrColsAttack.gml</script>
     </scripts>
     <script>scripts\scrGridToScreen.gml</script>
     <script>scripts\scrSendAttack.gml</script>
@@ -36,6 +41,7 @@
     <script>scripts\scrGainPower.gml</script>
     <script>scripts\scrResetGame.gml</script>
     <script>scripts\scrNullScript.gml</script>
+    <script>scripts\scrGenericPower.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\objBlock</object>
@@ -58,6 +64,7 @@
     <objects name="BattleMinimap">
       <object>objects\objBattleMinimap</object>
       <object>objects\objTank1</object>
+      <object>objects\objWall</object>
       <object>objects\objMonsterMini</object>
     </objects>
     <object>objects\objMonster</object>
@@ -69,7 +76,7 @@
     <room>rooms\roomGameMockup</room>
   </rooms>
   <constants number="3">
-    <constant name="GM_build_date">41939.789691412</constant>
+    <constant name="GM_build_date">41944.793806875</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
   </constants>

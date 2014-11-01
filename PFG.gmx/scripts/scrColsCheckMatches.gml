@@ -29,6 +29,7 @@ if (block.host != noone) {
                 collisionl2 = instance_place(x - (i * host.blockXSize), y, objColBlockSettled);
             }            
             scrMatchFound(block, matches);
+            return 1;
         } else {
             if (collisionr != noone && collisionr.color == color) {
                 matches[0] = collisionl;
@@ -41,12 +42,11 @@ if (block.host != noone) {
                     var collisionr2 = instance_place(x + (i * host.blockXSize), y, objColBlockSettled);
                 }            
                 scrMatchFound(block, matches);
+                return 1;
             }
         }
-    }
-
     //Check for 2+ matches to right
-    if (collisionr != noone && collisionr.color == color) {
+    } else if (collisionr != noone && collisionr.color == color) {
         var collisionr2 = instance_place(x + (2 * host.blockXSize), y, objColBlockSettled);
         if (collisionr2 != noone && collisionr2.color == color) {
             matches[0] = collisionr;
@@ -59,10 +59,11 @@ if (block.host != noone) {
                 collisionr2 = instance_place(x + (i * host.blockXSize), y, objColBlockSettled);
             }                    
             scrMatchFound(block, matches);
+            return 1;
         } 
     }
     
-    //Check for matches w/ up match
+    
     if (collisionu != noone && collisionu.color == color) {
         var collisionu2 = instance_place(x, y  - (2 * host.blockYSize), objColBlockSettled);
         if (collisionu2 != noone && collisionu2.color == color) {
@@ -76,7 +77,7 @@ if (block.host != noone) {
                 collisionu2 = instance_place(x, y  - (i * host.blockYSize), objColBlockSettled);
             }
             scrMatchFound(block, matches);
-            
+            return 1;        
         } else {
             if (collisiond != noone && collisiond.color == color) {
                 matches[0] = collisionu;
@@ -89,6 +90,7 @@ if (block.host != noone) {
                     collisiond2 = instance_place(x, y  + (i * host.blockYSize), objColBlockSettled);
                 }
                 scrMatchFound(block, matches);
+                return 1;
             }
         }
     }
@@ -107,6 +109,7 @@ if (block.host != noone) {
                 collisiond2 = instance_place(x, y  + (i * host.blockYSize), objColBlockSettled);
             }
             scrMatchFound(block, matches);
+            return 1;
         }
     }
     
@@ -136,6 +139,7 @@ if (block.host != noone) {
                 collisionul2 = instance_place(x - (i * host.blockXSize), y - (i * host.blockYSize), objColBlockSettled);
             }            
             scrMatchFound(block, matches);
+            return 1;
         } else {
             if (collisiondr != noone && collisiondr.color == color) {
                 matches[0] = collisionul;
@@ -148,6 +152,7 @@ if (block.host != noone) {
                     var collisiondr2 = instance_place(x + (i * host.blockXSize), y + (i * host.blockYSize), objColBlockSettled);
                 }            
                 scrMatchFound(block, matches);
+                return 1;
             }
         }
     }
@@ -166,6 +171,7 @@ if (block.host != noone) {
                 collisiondr2 = instance_place(x + (i * host.blockXSize), y + (i * host.blockYSize), objColBlockSettled);
             }                    
             scrMatchFound(block, matches);
+            return 1;
         } 
     }
     
@@ -183,7 +189,7 @@ if (block.host != noone) {
                 collisionur2 = instance_place(x + (i * host.blockXSize), y  - (i * host.blockYSize), objColBlockSettled);
             }
             scrMatchFound(block, matches);
-            
+            return 1;
         } else {
             if (collisiondl != noone && collisiondl.color == color) {
                 matches[0] = collisionur;
@@ -196,6 +202,7 @@ if (block.host != noone) {
                     collisiondl2 = instance_place(x - (i * host.blockXSize), y  + (i * host.blockYSize), objColBlockSettled);
                 }
                 scrMatchFound(block, matches);
+                return 1;
             }
         }
     }
@@ -214,6 +221,7 @@ if (block.host != noone) {
                 collisiondl2 = instance_place(x - (i * host.blockXSize), y  + (i * host.blockYSize), objColBlockSettled);
             }
             scrMatchFound(block, matches);
+            return 1;
         }
     }
     
@@ -222,3 +230,5 @@ if (block.host != noone) {
     
 }
 }
+
+return 0;

@@ -2,11 +2,16 @@
 
 var hostBlock = argument0;
 var matches = argument1;
+var l;
 
+host.matches += 1;
 
-scrSendAttack(host);
+while (host.matches >= 5) {
+    scrSendAttack(host);
+    host.matches -= 5;
+}
 
-if (is_array(matches)) {
+if (is_array(matches)) {    
     l = array_length_1d(matches);
     for (i = 0; i < l; ++i) {
         with (matches[i]) {
@@ -14,6 +19,8 @@ if (is_array(matches)) {
         }
     }
 }
+
+scrGenericPower(host, l);
 
 with (hostBlock) {
     instance_destroy();
