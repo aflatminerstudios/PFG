@@ -25,14 +25,74 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gameField[0] = instance_create(96 ,96, objTestGame); // Use player1Placeholder
-gameField[1] = instance_create(340, 96, objTestGame); // Use player2Placeholder
-//gameField[2]
-//gameField[3]
+            <string>/// Create gamefields
+
+// Game 0 (Player 1)
+gameField[0] = instance_create(0, 96, objColsGame); // Use Player1PlaceHolder object to position (eventually)
+gameField[0].player = instance_create(0,0,objPlayer);
+scrSetPlayerControls(gameField[0].player, INPUT_KEYBOARD, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
+
+
+// Game 1 (Player 2)
+gameField[1] = instance_create(256, 96, objColsGame); // Use Player2Placeholder
+gameField[1].player = instance_create(0,0,objPlayer);
+scrSetPlayerControls(gameField[1].player, INPUT_KEYBOARD, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
+gameField[1].baseSpeed = 2;
+gameField[1].currentSpeed = 2;
+
+// Game 2 (Player 3)
+gameField[2] = instance_create(512, 96, objColsGame); // Use Player3Placeholder
+gameField[2].player = instance_create(0,0,objPlayer);
+scrSetPlayerControls(gameField[2].player, INPUT_KEYBOARD, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
+gameField[2].baseSpeed = 3;
+gameField[2].currentSpeed = 3;
+
+// Game 3 (Player 4)
+gameField[3] = instance_create(768, 96, objTestGame); // Use Player4Placeholder
+gameField[3].player = instance_create(0,0,objPlayer);
+scrSetPlayerControls(gameField[3].player, INPUT_KEYBOARD, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
+
 
 for(var i = 0; i &lt; array_length_1d(gameField); i++) {
-    script_execute(gameField[i].resetGame);
+      script_execute(gameField[i].resetGame, gameField[i]); // Gives optional instance reference
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>depth = -1000;
+draw_set_alpha(1);
+draw_set_color(c_black);
+draw_set_halign(fa_center);
+
+for(var i = 0; i &lt; array_length_1d(gameField); i++) {
+  draw_text(gameField[i].x + (gameField[i].fieldWidth / 2), gameField[i].y - 24, gameField[i].gameName);
+
+  // Quick and dirty control display (hard-coded)
+  if(i == 0 || i == 2)
+    draw_text(gameField[i].x + (gameField[i].fieldWidth / 2), gameField[i].y + gameField[i].fieldHeight + 8, "Arrows/Ctrl/Alt/Enter");
+  else
+    draw_text(gameField[i].x + (gameField[i].fieldWidth / 2), gameField[i].y + gameField[i].fieldHeight + 8, "WASD/V/B/G");  
+}
+
 </string>
           </argument>
         </arguments>

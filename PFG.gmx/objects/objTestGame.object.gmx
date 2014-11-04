@@ -30,22 +30,93 @@ event_inherited(); // Run parent create first
 
 gameName = "Test Game"
 character = noone;
+player = noone;
 baseSpeed = 1;
 baseDifficulty = 1;
 currentSpeed = baseSpeed;
 currentDifficulty = baseDifficulty;
 
-//fieldWidth = 200;
-//fieldHeight = 500;
+fieldWidth = 256;
+fieldHeight = 480;
 
-// Functions called outside the Game Object;
-resetGame = scrNullScript; // set by game
+// Functions called outside the Game Object
+resetGame = scrCreateTestBoard; // set by game
 sendMonsterAttack = scrNullScript; // set by game
 gainStarPower = scrNullScript; // set by game
 addScore = scrNullScript; // set by player
 sendAttack = scrNullScript; // set by game
 
+show_debug_message("I am Test Game #" + string(self.id) + ". (objTestGame Create)");
 show_debug_message("objTestGame Create 1 finished.");
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create moveable test block
+/*
+testBlock = instance_create(x, y+32, objBlock);
+testBlock.depth = depth - 2;
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Move block via player controls
+
+if (keyboard_check_pressed(player.leftKey)) {
+  if(testBlock.x &gt;= x + testBlock.sprite_width)
+    testBlock.x -= testBlock.sprite_width;
+}
+
+if (keyboard_check_pressed(player.rightKey)) {
+  if(testBlock.x &lt; (x + fieldWidth) - testBlock.sprite_width)
+    testBlock.x += testBlock.sprite_width;
+}
+
+if (keyboard_check_pressed(player.upKey)) {
+  if(testBlock.y - testBlock.sprite_height &gt;= y + testBlock.sprite_height)
+    testBlock.y -= testBlock.sprite_height;
+}
+
+if (keyboard_check_pressed(player.downKey)) {
+  if(testBlock.y - testBlock.sprite_height &lt; (y + fieldHeight) - testBlock.sprite_height)
+    testBlock.y += testBlock.sprite_height;
+}
 
 </string>
           </argument>
@@ -109,6 +180,62 @@ show_debug_message("objTestGame Create 1 finished.");
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>524</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_color</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>13</kind>
+            <string>16777215</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>511</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_rectangle</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>fieldWidth</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>fieldHeight</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="9" enumb="32">
       <action>
@@ -127,7 +254,8 @@ show_debug_message("objTestGame Create 1 finished.");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrAddTankToBattleMinimap(objTank1);
+            <string>/// scrAddTankToBattleMinimap(objTank1)
+scrAddTankToBattleMinimap(objTank1);
 </string>
           </argument>
         </arguments>

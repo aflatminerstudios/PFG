@@ -21,6 +21,9 @@
       <script>scripts\scrAddTankToBattleMinimap.gml</script>
       <script>scripts\scrCreateWall.gml</script>
     </scripts>
+    <scripts name="TestGame">
+      <script>scripts\scrCreateTestBoard.gml</script>
+    </scripts>
     <scripts name="BlockGame">
       <script>scripts\scrBlockFall.gml</script>
       <script>scripts\scrBlockAttackMonster.gml</script>
@@ -34,6 +37,9 @@
       <script>scripts\scrColsCreateBlock.gml</script>
       <script>scripts\scrColsCheckMatches.gml</script>
       <script>scripts\scrColsAttack.gml</script>
+    </scripts>
+    <scripts name="PlayerControls">
+      <script>scripts\scrSetPlayerControls.gml</script>
     </scripts>
     <script>scripts\scrGridToScreen.gml</script>
     <script>scripts\scrSendAttack.gml</script>
@@ -71,14 +77,17 @@
     <object>objects\objAttackObject</object>
     <object>objects\objKwaken</object>
     <object>objects\objGameManager</object>
+    <object>objects\objPlayer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomGameMockup</room>
   </rooms>
-  <constants number="3">
-    <constant name="GM_build_date">41944.793806875</constant>
+  <constants number="5">
+    <constant name="GM_build_date">41947.2870693056</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
+    <constant name="INPUT_KEYBOARD">1</constant>
+    <constant name="INPUT_XBOX360GAMEPAD">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

@@ -54,9 +54,8 @@
     <instance objName="objGameManager" x="7" y="0" name="inst_75C4291A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBattleMinimap" x="266" y="32" name="inst_409AC4F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonsterMini" x="266" y="32" name="inst_59328955" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objColsGame" x="723" y="96" name="inst_0650CCDF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objMonster" x="249" y="0" name="inst_EA56EC66" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKwaken" x="-23" y="256" name="inst_29F12028" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMonster" x="249" y="0" name="inst_EA56EC66" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

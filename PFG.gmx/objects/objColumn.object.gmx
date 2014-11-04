@@ -109,23 +109,24 @@ if (host != noone) {
        
         
     } else {
-        if (keyboard_check_pressed(vk_left)) {
+    
+        if (keyboard_check_pressed(host.player.leftKey)) {
             if (x &gt; host.x &amp;&amp; place_free(x - 30, y)) {
                 x -= 32;
             }
         }
         
-        if (keyboard_check_pressed(vk_right)) {
+        if (keyboard_check_pressed(host.player.rightKey)) {
             if (x &lt; host.x + host.fieldWidth - 32 &amp;&amp; place_free(x + 30, y)) {
                 x += 32;
             }
         }
         
-        if (keyboard_check(vk_down)) {
+        if (keyboard_check(host.player.downKey)) {
             host.currentSpeed = host.baseSpeed * 3;
         }
         
-        if (keyboard_check_released(vk_down)) {
+        if (keyboard_check_released(host.player.downKey)) {
             host.currentSpeed = host.baseSpeed;
         }
     }   
@@ -153,13 +154,13 @@ if (host != noone) {
             <string>///Block switching
 
 if (host != noone) {
-    if (keyboard_check_pressed(vk_control)) {
+    if (keyboard_check_pressed(host.player.button1Key)) {
         var tmp = block1;
         block1 = block2;
         block2 = block3;
         block3 = tmp;
     }
-    if (keyboard_check_pressed(vk_alt)) {
+    if (keyboard_check_pressed(host.player.button2Key)) {
         var tmp = block1;
         block1 = block3;
         block3 = block2;

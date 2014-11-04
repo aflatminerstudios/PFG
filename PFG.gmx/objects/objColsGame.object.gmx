@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>100</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objGame</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -144,8 +144,16 @@ alarm[0] = (room_speed / 5)/currentSpeed;
           <argument>
             <kind>1</kind>
             <string>///Create new column
+var hostId = self.id;
 
-if (!instance_exists(objColumn) &amp;&amp; gameAlive) {
+var hasActiveColumn = false;
+
+with(objColumn) {
+    if(host == hostId)
+        hasActiveColumn = true;
+}
+
+if (!hasActiveColumn &amp;&amp; gameAlive) {
     var i = irandom(gridXMax - 1);
     var coords = scrGridToScreen(i, gridYMax, self);
     var c = instance_create(coords[0], coords[1], objColumn);
@@ -172,9 +180,11 @@ if (!instance_exists(objColumn) &amp;&amp; gameAlive) {
           <argument>
             <kind>1</kind>
             <string>///Check for matches
+var hostId = self.id;
 
 with (objColBlockSettled) {
-    scrColsCheckMatches(self.id);
+    if(host == hostId)
+      scrColsCheckMatches(self.id);
 }
 </string>
           </argument>

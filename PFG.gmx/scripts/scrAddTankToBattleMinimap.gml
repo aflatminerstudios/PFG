@@ -1,5 +1,5 @@
 /// scrAddTankToBattleMinimap(tankObjectType)
-tankObjectType = argument0;
+var tankObjectType = argument0;
 
 // Add in object type checking and exit early if invalid (with log) - TODO
 //if(tankObjectType doesn't exist) {

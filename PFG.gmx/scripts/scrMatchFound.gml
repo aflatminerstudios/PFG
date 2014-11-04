@@ -21,6 +21,8 @@ if (is_array(matches)) {
 }
 
 scrGenericPower(host, l);
+// Send a tank for the heck of it
+scrAddTankToBattleMinimap(objTank1);
 
 with (hostBlock) {
     instance_destroy();
