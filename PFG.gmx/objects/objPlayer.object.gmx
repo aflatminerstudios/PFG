@@ -40,6 +40,7 @@ button1Key = vk_control;
 button2Key = vk_alt;
 button3Key = vk_enter;
 
+
 //scrSetPlayerControls(self, INPUT_KEYBOARD, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
 
 /*

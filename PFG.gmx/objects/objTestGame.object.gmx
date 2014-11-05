@@ -98,22 +98,22 @@ testBlock.depth = depth - 2;
             <kind>1</kind>
             <string>/// Move block via player controls
 
-if (keyboard_check_pressed(player.leftKey)) {
+if (scrCheckLeftPressed(player)) {
   if(testBlock.x &gt;= x + testBlock.sprite_width)
     testBlock.x -= testBlock.sprite_width;
 }
 
-if (keyboard_check_pressed(player.rightKey)) {
+if (scrCheckRightPressed(player)) {
   if(testBlock.x &lt; (x + fieldWidth) - testBlock.sprite_width)
     testBlock.x += testBlock.sprite_width;
 }
 
-if (keyboard_check_pressed(player.upKey)) {
+if (scrCheckUpPressed(player)) {
   if(testBlock.y - testBlock.sprite_height &gt;= y + testBlock.sprite_height)
     testBlock.y -= testBlock.sprite_height;
 }
 
-if (keyboard_check_pressed(player.downKey)) {
+if (scrCheckDownPressed(player)) {
   if(testBlock.y - testBlock.sprite_height &lt; (y + fieldHeight) - testBlock.sprite_height)
     testBlock.y += testBlock.sprite_height;
 }
