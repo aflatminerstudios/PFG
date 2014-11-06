@@ -152,13 +152,13 @@ if (host != noone) {
             <string>///Block switching
 
 if (host != noone) {
-    if (keyboard_check_pressed(host.player.button1Key)) {
+    if (scrCheckButton1Pressed(host.player)) {
         var tmp = block1;
         block1 = block2;
         block2 = block3;
         block3 = tmp;
     }
-    if (keyboard_check_pressed(host.player.button2Key)) {
+    if (scrCheckButton2Pressed(host.player)) {
         var tmp = block1;
         block1 = block3;
         block3 = block2;

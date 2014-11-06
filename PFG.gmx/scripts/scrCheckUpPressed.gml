@@ -2,11 +2,12 @@
 var playerInst = argument0;
 
 show_debug_message("scrCheckUpPressed called.");
-if(keyboard_check_pressed(playerInst.upKey)){
-  return true;
-} else {
-  return false;
+if(playerInst.inputType == INPUT_KEYBOARD) {
+  if(keyboard_check_pressed(playerInst.upKey))
+    return true;
+} else if(playerInst.inputType == INPUT_XBOX360GAMEPAD) {
+  if(gamepad_button_check_pressed(playerInst.gamepadNumber, playerInst.upKey))
+    return true;
 }
-
 
 return false;

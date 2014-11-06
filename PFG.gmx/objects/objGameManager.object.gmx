@@ -30,27 +30,30 @@
 // Game 0 (Player 1)
 gameField[0] = instance_create(0, 96, objColsGame); // Use Player1PlaceHolder object to position (eventually)
 gameField[0].player = instance_create(0,0,objPlayer);
-scrSetPlayerControls(gameField[0].player, INPUT_KEYBOARD, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
-
+scrSetPlayerControls(gameField[0].player, INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
+//scrSetPlayerControls(gameField[0].player, INPUT_KEYBOARD, 0, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
+gameField[0].baseSpeed = 3;
+gameField[0].currentSpeed = 3;
 
 // Game 1 (Player 2)
 gameField[1] = instance_create(256, 96, objColsGame); // Use Player2Placeholder
 gameField[1].player = instance_create(0,0,objPlayer);
-scrSetPlayerControls(gameField[1].player, INPUT_KEYBOARD, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
-gameField[1].baseSpeed = 2;
-gameField[1].currentSpeed = 2;
+scrSetPlayerControls(gameField[1].player, INPUT_XBOX360GAMEPAD, 1, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
+//scrSetPlayerControls(gameField[1].player, INPUT_KEYBOARD, 0, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
+gameField[1].baseSpeed = 3;
+gameField[1].currentSpeed = 3;
 
 // Game 2 (Player 3)
 gameField[2] = instance_create(512, 96, objColsGame); // Use Player3Placeholder
 gameField[2].player = instance_create(0,0,objPlayer);
-scrSetPlayerControls(gameField[2].player, INPUT_KEYBOARD, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
-gameField[2].baseSpeed = 3;
-gameField[2].currentSpeed = 3;
+scrSetPlayerControls(gameField[2].player, INPUT_KEYBOARD, 0, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
+gameField[2].baseSpeed = 5;
+gameField[2].currentSpeed = 5;
 
 // Game 3 (Player 4)
 gameField[3] = instance_create(768, 96, objTestGame); // Use Player4Placeholder
 gameField[3].player = instance_create(0,0,objPlayer);
-scrSetPlayerControls(gameField[3].player, INPUT_KEYBOARD, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
+scrSetPlayerControls(gameField[3].player, INPUT_KEYBOARD, 0, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
 
 
 for(var i = 0; i &lt; array_length_1d(gameField); i++) {
@@ -78,7 +81,8 @@ for(var i = 0; i &lt; array_length_1d(gameField); i++) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -1000;
+            <string>/// Draw temporary controls information
+depth = -1000;
 draw_set_alpha(1);
 draw_set_color(c_black);
 draw_set_halign(fa_center);
@@ -86,12 +90,19 @@ draw_set_halign(fa_center);
 for(var i = 0; i &lt; array_length_1d(gameField); i++) {
   draw_text(gameField[i].x + (gameField[i].fieldWidth / 2), gameField[i].y - 24, gameField[i].gameName);
 
+  /*
   // Quick and dirty control display (hard-coded)
   if(i == 0 || i == 2)
     draw_text(gameField[i].x + (gameField[i].fieldWidth / 2), gameField[i].y + gameField[i].fieldHeight + 8, "Arrows/Ctrl/Alt/Enter");
   else
     draw_text(gameField[i].x + (gameField[i].fieldWidth / 2), gameField[i].y + gameField[i].fieldHeight + 8, "WASD/V/B/G");  
+  */
 }
+// Quick and dirty control display (hard-coded)
+draw_text(gameField[0].x + (gameField[0].fieldWidth / 2), gameField[0].y + gameField[0].fieldHeight + 8, "Controller 1");
+draw_text(gameField[1].x + (gameField[1].fieldWidth / 2), gameField[1].y + gameField[1].fieldHeight + 8, "Controller 2");
+draw_text(gameField[2].x + (gameField[2].fieldWidth / 2), gameField[2].y + gameField[2].fieldHeight + 8, "Arrows/Ctrl/Alt/Enter");
+draw_text(gameField[3].x + (gameField[3].fieldWidth / 2), gameField[3].y + gameField[3].fieldHeight + 8, "WASD/V/B/G");
 
 </string>
           </argument>

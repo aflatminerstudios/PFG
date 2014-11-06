@@ -43,9 +43,13 @@
       <script>scripts\scrCheckLeftPressed.gml</script>
       <script>scripts\scrCheckRightPressed.gml</script>
       <script>scripts\scrCheckUpPressed.gml</script>
+      <script>scripts\scrCheckDown.gml</script>
       <script>scripts\scrCheckDownPressed.gml</script>
       <script>scripts\scrCheckDownReleased.gml</script>
-      <script>scripts\scrCheckDown.gml</script>
+      <script>scripts\scrCheckButton1Pressed.gml</script>
+      <script>scripts\scrCheckButton2Pressed.gml</script>
+      <script>scripts\scrCheckButton3Pressed.gml</script>
+      <script>scripts\scrControllerSnippets.gml</script>
     </scripts>
     <script>scripts\scrGridToScreen.gml</script>
     <script>scripts\scrSendAttack.gml</script>
@@ -89,7 +93,7 @@
     <room>rooms\roomGameMockup</room>
   </rooms>
   <constants number="5">
-    <constant name="GM_build_date">41948.7943756366</constant>
+    <constant name="GM_build_date">41949.2555183912</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
     <constant name="INPUT_KEYBOARD">1</constant>
