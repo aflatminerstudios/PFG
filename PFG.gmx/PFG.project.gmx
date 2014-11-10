@@ -17,6 +17,9 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="Utility Scripts">
+      <script>scripts\debug_log.gml</script>
+    </scripts>
     <scripts name="BattleMinimap">
       <script>scripts\scrAddTankToBattleMinimap.gml</script>
       <script>scripts\scrCreateWall.gml</script>
@@ -40,15 +43,9 @@
     </scripts>
     <scripts name="PlayerControls">
       <script>scripts\scrSetPlayerControls.gml</script>
-      <script>scripts\scrCheckLeftPressed.gml</script>
-      <script>scripts\scrCheckRightPressed.gml</script>
-      <script>scripts\scrCheckUpPressed.gml</script>
-      <script>scripts\scrCheckDown.gml</script>
-      <script>scripts\scrCheckDownPressed.gml</script>
-      <script>scripts\scrCheckDownReleased.gml</script>
-      <script>scripts\scrCheckButton1Pressed.gml</script>
-      <script>scripts\scrCheckButton2Pressed.gml</script>
-      <script>scripts\scrCheckButton3Pressed.gml</script>
+      <script>scripts\scrCheckButton.gml</script>
+      <script>scripts\scrCheckButtonPressed.gml</script>
+      <script>scripts\scrCheckButtonReleased.gml</script>
       <script>scripts\scrControllerSnippets.gml</script>
     </scripts>
     <script>scripts\scrGridToScreen.gml</script>
@@ -92,12 +89,21 @@
   <rooms name="rooms">
     <room>rooms\roomGameMockup</room>
   </rooms>
-  <constants number="5">
-    <constant name="GM_build_date">41949.2555183912</constant>
+  <constants number="14">
+    <constant name="GM_build_date">41953.0721399769</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
+    <constant name="DEBUG">4</constant>
+    <constant name="LOGLEVEL">DEBUG</constant>
     <constant name="INPUT_KEYBOARD">1</constant>
     <constant name="INPUT_XBOX360GAMEPAD">2</constant>
+    <constant name="UP">0</constant>
+    <constant name="DOWN">1</constant>
+    <constant name="LEFT">2</constant>
+    <constant name="RIGHT">3</constant>
+    <constant name="BUTTON1">4</constant>
+    <constant name="BUTTON2">5</constant>
+    <constant name="BUTTON3">6</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

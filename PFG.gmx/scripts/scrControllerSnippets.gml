@@ -1,7 +1,6 @@
+/*
 ///scrCheckController(ctrl)
 // From Soul Shepherds
-
-/*
 /// Move using controller 0's right stick
 hspeed += gamepad_axis_value(0, gp_axisrh) * vxDelta *2;
 vspeed += gamepad_axis_value(0, gp_axisrv) * vyDelta *2;
@@ -22,7 +21,7 @@ vspeed += gamepad_axis_value(0, gp_axisrv) * vyDelta *2;
     }
 */
 
-
+/*
 ctrl = argument0;
 
 var pressed = false;
@@ -52,3 +51,4 @@ if (gamepad_button_check_pressed(ctrl, gp_start)) {
 }
 
 return pressed;
+*/

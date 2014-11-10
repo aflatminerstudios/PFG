@@ -110,19 +110,19 @@ if (host != noone) {
         
     } else {
     
-        if (scrCheckLeftPressed(host.player)) {
+        if (scrCheckButtonPressed(host.player, LEFT)) {
             if (x &gt; host.x &amp;&amp; place_free(x - 30, y)) {
                 x -= 32;
             }
         }
         
-        if (scrCheckRightPressed(host.player)) {
+        if (scrCheckButtonPressed(host.player, RIGHT)) {
             if (x &lt; host.x + host.fieldWidth - 32 &amp;&amp; place_free(x + 30, y)) {
                 x += 32;
             }
         }
         
-        if (scrCheckDown(host.player)) {
+        if (scrCheckButton(host.player, DOWN)) {
             host.currentSpeed = host.baseSpeed * 3;
         } else {
           host.currentSpeed = host.baseSpeed;
@@ -152,13 +152,13 @@ if (host != noone) {
             <string>///Block switching
 
 if (host != noone) {
-    if (scrCheckButton1Pressed(host.player)) {
+    if (scrCheckButtonPressed(host.player, BUTTON1)) {
         var tmp = block1;
         block1 = block2;
         block2 = block3;
         block3 = tmp;
     }
-    if (scrCheckButton2Pressed(host.player)) {
+    if (scrCheckButtonPressed(host.player, BUTTON2)) {
         var tmp = block1;
         block1 = block3;
         block3 = block2;
