@@ -4,7 +4,7 @@
 var playerInst = argument0;
 var button = argument1;
 
-debug_log("scrCheckButtonReleased called.");
+//debug_log("scrCheckButtonReleased called.");
 
 var buttonToCheck = null;
 

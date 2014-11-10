@@ -105,6 +105,7 @@ if (host != noone) {
         with (block3) {
             instance_change(objColBlockSettled, false);
         }
+        audio_play_sound(sndThik, 1, false);
         instance_destroy();
        
         
@@ -157,12 +158,17 @@ if (host != noone) {
         block1 = block2;
         block2 = block3;
         block3 = tmp;
+        
+        audio_play_sound(sndChirp, 1, false);
     }
     if (scrCheckButtonPressed(host.player, BUTTON2)) {
+        debug_log("Button 2 Pressed - Rotation");
         var tmp = block1;
         block1 = block3;
         block3 = block2;
         block2 = tmp;
+        
+        audio_play_sound(sndChirp, 1, false);
     }
 }
 </string>

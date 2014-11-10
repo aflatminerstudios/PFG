@@ -29,7 +29,7 @@
 
 // Control is keyboard or XBox 360 controller
 inputType = INPUT_KEYBOARD;
-gamepadNumber = 0; // 0-3
+gamepadNumber = 0; // 0-3, irrelevant if not using INPUT_XBOX360GAMEPAD
 
 // What to check for keys using keyboard_pressed, etc.
 // Defaults
@@ -41,8 +41,18 @@ button1Key = vk_control;
 button2Key = vk_alt;
 button3Key = vk_enter;
 
+// Example button setup
+// WASD/V/B/G
+//  scrSetPlayerControls(self, INPUT_KEYBOARD, 0, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
 
-//scrSetPlayerControls(self, INPUT_KEYBOARD, 0, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
+// Arrows/Ctrl/Alt/Enter
+//  scrSetPlayerControls(gameField[2].player, INPUT_KEYBOARD, 0, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
+
+// Gamepad #1 A/B/X
+//  scrSetPlayerControls(self, INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
+
+// Gamepad #2 A/B/X
+//  scrSetPlayerControls(self, INPUT_XBOX360GAMEPAD, 1, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
 
 </string>
           </argument>

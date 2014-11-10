@@ -4,7 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sndChirp</sound>
+    <sound>sound\sndThik</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprBattleMinimapLine</sprite>
     <sprite>sprites\sprTank1</sprite>
@@ -57,6 +60,10 @@
     <script>scripts\scrGenericPower.gml</script>
   </scripts>
   <objects name="objects">
+    <object>objects\objGameRoomManager</object>
+    <objects name="Game Select Menu">
+      <object>objects\objGameSelectManager</object>
+    </objects>
     <object>objects\objBlock</object>
     <object>objects\objGame</object>
     <objects name="TestGame">
@@ -80,18 +87,27 @@
       <object>objects\objWall</object>
       <object>objects\objMonsterMini</object>
     </objects>
+    <objects name="Player Controls">
+      <object>objects\objPlayerManager</object>
+      <object>objects\objPlayer</object>
+    </objects>
+    <objects name="Player Room Positions">
+      <object>objects\objPlayer1Position</object>
+      <object>objects\objPlayer2Position</object>
+      <object>objects\objPlayer3Position</object>
+      <object>objects\objPlayer4Position</object>
+    </objects>
     <object>objects\objMonster</object>
     <object>objects\objAttackObject</object>
     <object>objects\objKwaken</object>
-    <object>objects\objGameManager</object>
-    <object>objects\objPlayer</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\roomGameMockup</room>
+    <room>rooms\roomGameRoom</room>
+    <room>rooms\roomGameSelect</room>
   </rooms>
   <constants number="14">
-    <constant name="GM_build_date">41953.0721399769</constant>
-    <constant name="GM_version">'1.0.0.0'</constant>
+    <constant name="GM_build_date">41953.2664010069</constant>
+    <constant name="GM_version">'1.0.0.2'</constant>
     <constant name="null">"null"</constant>
     <constant name="DEBUG">4</constant>
     <constant name="LOGLEVEL">DEBUG</constant>
