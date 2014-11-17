@@ -16,6 +16,12 @@
     <sprite>sprites\sprKwaken</sprite>
     <sprite>sprites\sprWall</sprite>
     <sprite>sprites\sprColumn</sprite>
+    <sprites name="Characters">
+      <sprite>sprites\sprConstructionCat</sprite>
+      <sprite>sprites\sprChefPig</sprite>
+      <sprite>sprites\sprGeneralPenguin</sprite>
+      <sprite>sprites\sprSkydiverSnake</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -100,14 +106,15 @@
     <object>objects\objMonster</object>
     <object>objects\objAttackObject</object>
     <object>objects\objKwaken</object>
+    <object>objects\objCharacter</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomGameRoom</room>
     <room>rooms\roomGameSelect</room>
   </rooms>
   <constants number="14">
-    <constant name="GM_build_date">41953.2664010069</constant>
-    <constant name="GM_version">'1.0.0.2'</constant>
+    <constant name="GM_build_date">41960.3135785764</constant>
+    <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
     <constant name="DEBUG">4</constant>
     <constant name="LOGLEVEL">DEBUG</constant>
