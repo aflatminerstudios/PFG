@@ -28,6 +28,7 @@
             <string>/// Setup default game variables
 gameName = "Block Game"
 character = noone;
+player = noone;
 baseSpeed = 5;
 baseDifficulty = 1;
 currentSpeed = 5;

@@ -25,19 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set up players and default controls
-debug_log("objPlayerManager - Creating objPlayer and controls.");
-for(var i = 0; i &lt; 4; i++){
-  playerControls[i] = instance_create(0,0,objPlayer);
-  playerControls[i].persistent = true;
-  scrSetPlayerControls(playerControls[i], INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
-}
+            <string>/// Build game list info object that can be queried
+gameListObject = instance_create(0,0,objGameList);
+gameListObject.persistent = true;
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -54,13 +48,44 @@ for(var i = 0; i &lt; 4; i++){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Add code to destroy created children (playerControls, etc.)
+            <string>/// Build Player Controls Manager (Run this in first room)
+debug_log("objGameSelectManager - Creating objPlayerManager.");
+globalvar playerManager;
+global.playerManager = instance_create(0, 0, objPlayerManager);
+global.playerManager.persistent = true;
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="9" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set up default game selections (global.gameSelectionInfo)
+
+globalvar gameSelectionInfo;
+
+for(var i = 0; i &lt; 4; i++) {
+  scrSetGameSelectionForPlayer(i,scrGetFirstEnabledGame());
+  scrSetGameLevelForPlayer(i,1);
+  scrSetGameSpeedForPlayer(i,2);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>222</id>

@@ -3,9 +3,9 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>100</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objGame</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,73 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Setup specific game variables
-event_inherited(); // Run parent create first
+            <string>/// Set up default controls and variables
 
-gameName = "Test Game"
-character = noone;
 player = noone;
-baseSpeed = 1;
-baseDifficulty = 1;
-currentSpeed = baseSpeed;
-currentDifficulty = baseDifficulty;
+gameNumber = -1; // Game currently displayed, number is returned from scrGetNextEnabledGame, etc.
 
-fieldWidth = 256;
-fieldHeight = 480;
-
-// Functions called outside the Game Object
-resetGame = scrCreateTestBoard; // set by game
-sendMonsterAttack = scrNullScript; // set by game
-gainStarPower = scrNullScript; // set by game
-addScore = scrNullScript; // set by player
-sendAttack = scrNullScript; // set by game
-
-debug_log("I am Test Game #" + string(self.id) + ". (objTestGame Create)");
-debug_log("objTestGame Create 1 finished.");
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Move block via player controls
-
-if (scrCheckButtonPressed(player, LEFT)) {
-  if(testBlock.x &gt;= x + testBlock.sprite_width)
-    testBlock.x -= testBlock.sprite_width;
-}
-
-if (scrCheckButtonPressed(player, RIGHT)) {
-  if(testBlock.x &lt; (x + fieldWidth) - testBlock.sprite_width)
-    testBlock.x += testBlock.sprite_width;
-}
-
-if (scrCheckButtonPressed(player, UP)) {
-  if(testBlock.y - testBlock.sprite_height &gt;= y + testBlock.sprite_height)
-    testBlock.y -= testBlock.sprite_height;
-}
-
-if (scrCheckButtonPressed(player, DOWN)) {
-  if(testBlock.y - testBlock.sprite_height &lt; (y + fieldHeight) - testBlock.sprite_height)
-    testBlock.y += testBlock.sprite_height;
-}
 
 </string>
           </argument>
@@ -115,7 +53,7 @@ if (scrCheckButtonPressed(player, DOWN)) {
         <arguments>
           <argument>
             <kind>13</kind>
-            <string>64</string>
+            <string>16711808</string>
           </argument>
         </arguments>
       </action>
@@ -208,30 +146,6 @@ if (scrCheckButtonPressed(player, DOWN)) {
           <argument>
             <kind>4</kind>
             <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// scrAddTankToBattleMinimap(objTank1)
-scrAddTankToBattleMinimap(objTank1);
-</string>
           </argument>
         </arguments>
       </action>

@@ -25,35 +25,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Setup default game variables
-gameName = "Default Game Name"
-character = noone;
-player = noone;
-baseSpeed = 0;
-baseDifficulty = 0;
-currentSpeed = 0;
-currentDifficulty = 0;
+            <string>/// Create gameList array that can be queried
 
-fieldWidth = 200;
-fieldHeight = 500;
+// To add a game to this list, add an entry to the Ordering section,
+//   then add appropriate array members using the Order variable you created
 
-gridXMax = 8;
-gridYMax = 15;
-blockXSize = 32;
-blockYSize = 32;
+// The array contains at least two entries for each game.
+//   The first one is the game object and 
+//   The second one is whether it is ENABLED or DISABLED.
 
-gameAlive = true;
-starPower = 0;
+// Ordering that can be modified easily, starting at 0
+// (Check what happens if there is a gap in array --  Micha Check)
+var objTestGameOrder = 1;
+var objColsGameOrder = 0;
 
-// Functions called outside the Game Object;
-resetGame = scrNullScript; // set by game
-sendMonsterAttack = scrNullScript; // set by game
-gainStarPower = scrNullScript; // set by game
-addScore = scrNullScript; // set by player
-sendAttack = scrNullScript; // set by game
+// Game list array (see above)
+gameList[objColsGameOrder,0] = objColsGame;
+gameList[objColsGameOrder,1] = ENABLED;
 
-
-show_debug_message("objGame Create 1 finished.");
+gameList[objTestGameOrder,0] = objTestGame;
+gameList[objTestGameOrder,1] = ENABLED;
 </string>
           </argument>
         </arguments>

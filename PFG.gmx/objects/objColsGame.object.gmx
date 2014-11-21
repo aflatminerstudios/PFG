@@ -28,6 +28,7 @@
             <string>/// Setup default game variables
 gameName = "Columns"
 character = noone;
+player = noone;
 baseSpeed = 5;
 baseDifficulty = 1;
 currentSpeed = 5;

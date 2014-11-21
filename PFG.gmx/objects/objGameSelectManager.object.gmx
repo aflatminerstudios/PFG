@@ -11,30 +11,17 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>222</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_next_room</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Build Player Controls Manager
-debug_log("objGameSelectManager - Creating objPlayerManager.");
-global.playerManager = instance_create(0, 0, objPlayerManager);
-
-// debug stuff -- Micha DEBUG
-debug_log("Gamepad for Player 1 is: " + string(global.playerManager.playerControls[0].gamepadNumber));
-scrCheckButtonPressed(global.playerManager.playerControls[0], LEFT);
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
   </events>

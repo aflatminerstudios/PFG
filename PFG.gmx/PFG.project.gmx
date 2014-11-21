@@ -26,6 +26,18 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="GameList">
+      <script>scripts\scrGetFirstEnabledGame.gml</script>
+      <script>scripts\scrGetNextEnabledGame.gml</script>
+    </scripts>
+    <scripts name="Game Selection">
+      <script>scripts\scrGetGameSelectionForPlayer.gml</script>
+      <script>scripts\scrGetGameLevelForPlayer.gml</script>
+      <script>scripts\scrGetGameSpeedForPlayer.gml</script>
+      <script>scripts\scrSetGameSelectionForPlayer.gml</script>
+      <script>scripts\scrSetGameLevelForPlayer.gml</script>
+      <script>scripts\scrSetGameSpeedForPlayer.gml</script>
+    </scripts>
     <scripts name="Utility Scripts">
       <script>scripts\debug_log.gml</script>
     </scripts>
@@ -66,28 +78,35 @@
     <script>scripts\scrGenericPower.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\objGameRoomManager</object>
+    <objects name="Pregame Setup">
+      <object>objects\objPregameSetup</object>
+    </objects>
     <objects name="Game Select Menu">
       <object>objects\objGameSelectManager</object>
+      <object>objects\objGameSelector</object>
+    </objects>
+    <object>objects\objGameRoomManager</object>
+    <objects name="Games">
+      <object>objects\objGameList</object>
+      <object>objects\objGame</object>
+      <objects name="TestGame">
+        <object>objects\objTestGame</object>
+      </objects>
+      <objects name="BlockGame">
+        <object>objects\objBlockGame</object>
+        <object>objects\objFallingBlock</object>
+        <object>objects\objActiveBlock</object>
+      </objects>
+      <objects name="ColsGame">
+        <object>objects\objColsGame</object>
+        <object>objects\objColFallingBlock</object>
+        <object>objects\objColumn</object>
+        <object>objects\objColBlock</object>
+        <object>objects\objColBlockSettled</object>
+      </objects>
     </objects>
     <object>objects\objBlock</object>
-    <object>objects\objGame</object>
-    <objects name="TestGame">
-      <object>objects\objTestGame</object>
-    </objects>
-    <objects name="BlockGame">
-      <object>objects\objBlockGame</object>
-      <object>objects\objFallingBlock</object>
-      <object>objects\objActiveBlock</object>
-    </objects>
-    <objects name="ColsGame">
-      <object>objects\objColsGame</object>
-      <object>objects\objColFallingBlock</object>
-      <object>objects\objColumn</object>
-      <object>objects\objColBlock</object>
-      <object>objects\objColBlockSettled</object>
-    </objects>
-    <objects name="BattleMinimap">
+    <objects name="Battle Minimap">
       <object>objects\objBattleMinimap</object>
       <object>objects\objTank1</object>
       <object>objects\objWall</object>
@@ -109,11 +128,12 @@
     <object>objects\objCharacter</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\roomGameRoom</room>
+    <room>rooms\roomSetup</room>
     <room>rooms\roomGameSelect</room>
+    <room>rooms\roomGameRoom</room>
   </rooms>
-  <constants number="14">
-    <constant name="GM_build_date">41960.3135785764</constant>
+  <constants number="16">
+    <constant name="GM_build_date">41964.3477201505</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
     <constant name="DEBUG">4</constant>
@@ -127,6 +147,8 @@
     <constant name="BUTTON1">4</constant>
     <constant name="BUTTON2">5</constant>
     <constant name="BUTTON3">6</constant>
+    <constant name="DISABLED">0</constant>
+    <constant name="ENABLED">1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
