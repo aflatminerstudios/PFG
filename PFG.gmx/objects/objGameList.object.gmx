@@ -38,13 +38,29 @@
 // (Check what happens if there is a gap in array --  Micha Check)
 var objTestGameOrder = 1;
 var objColsGameOrder = 0;
+var objTestGame2Order = 2;
+var objTestGame3Order = 3;
 
 // Game list array (see above)
-gameList[objColsGameOrder,0] = objColsGame;
-gameList[objColsGameOrder,1] = ENABLED;
+gameList[objColsGameOrder,GAMEOBJECT] = objColsGame;
+gameList[objColsGameOrder,MASTERENABLED] = ENABLED;
+gameList[objColsGameOrder,GAMENAME] = "Columns Game";
+gameList[objColsGameOrder,GAMEDESCRIPTION] = "Rotate vertical columns of three to match 3 of a kind in a row.";
 
-gameList[objTestGameOrder,0] = objTestGame;
-gameList[objTestGameOrder,1] = ENABLED;
+gameList[objTestGameOrder,GAMEOBJECT] = objTestGame;
+gameList[objTestGameOrder,MASTERENABLED] = ENABLED;
+gameList[objTestGameOrder,GAMENAME] = "Test Game";
+gameList[objTestGameOrder,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
+
+gameList[objTestGame2Order,GAMEOBJECT] = objTestGame2;
+gameList[objTestGame2Order,MASTERENABLED] = ENABLED;
+gameList[objTestGame2Order,GAMENAME] = "Test Game 2";
+gameList[objTestGame2Order,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
+
+gameList[objTestGame3Order,GAMEOBJECT] = objTestGame3;
+gameList[objTestGame3Order,MASTERENABLED] = ENABLED;
+gameList[objTestGame3Order,GAMENAME] = "Test Game 3";
+gameList[objTestGame3Order,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
 </string>
           </argument>
         </arguments>

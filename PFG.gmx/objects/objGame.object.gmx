@@ -58,6 +58,35 @@ show_debug_message("objGame Create 1 finished.");
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Barebones setup for testing new game types (commented out)
+//  (i.e. without a framework, in a room of its own)
+/*
+player = instance_create(x, y, objPlayer);
+// Gamepad 0
+scrSetPlayerControls(player, INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
+// Or keyboard arrows/ctrl/alt/enter
+scrSetPlayerControls(gameMenu[2].player, INPUT_KEYBOARD, 0, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>

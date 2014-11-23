@@ -30,6 +30,7 @@ debug_log("objPlayerManager - Creating objPlayer and controls.");
 for(var i = 0; i &lt; 4; i++){
   playerControls[i] = instance_create(0,0,objPlayer);
   playerControls[i].persistent = true;
+  playerControls[i].playerNumber = i;
   scrSetPlayerControls(playerControls[i], INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
 }
 </string>

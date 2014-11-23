@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// Set up player control variables
 
+playerNumber = 0;
+
 // Control is keyboard or XBox 360 controller
 inputType = INPUT_KEYBOARD;
 gamepadNumber = 0; // 0-3, irrelevant if not using INPUT_XBOX360GAMEPAD

@@ -31,7 +31,7 @@
 // Use Player1PlaceHolder object to position
 gameField[0] = instance_create(objPlayer1Position.x, objPlayer1Position.y, scrGetGameSelectionForPlayer(0));
 gameField[0].player = global.playerManager.playerControls[0];
-scrSetPlayerControls(gameField[0].player, INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
+scrSetPlayerControls(gameField[0].player, INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);  // Eventually remove --  Micha
 gameField[0].baseSpeed = scrGetGameSpeedForPlayer(0);
 gameField[0].currentSpeed = scrGetGameSpeedForPlayer(0);
 // Character stand-in
@@ -42,7 +42,6 @@ instance_create(objPlayer1Position.x, 608, objCharacter);
 gameField[1] = instance_create(objPlayer2Position.x, objPlayer2Position.y, scrGetGameSelectionForPlayer(1));
 gameField[1].player = global.playerManager.playerControls[1];
 scrSetPlayerControls(gameField[1].player, INPUT_XBOX360GAMEPAD, 1, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
-//scrSetPlayerControls(gameField[1].player, INPUT_KEYBOARD, 0, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
 gameField[1].baseSpeed = scrGetGameSpeedForPlayer(1);
 gameField[1].currentSpeed = scrGetGameSpeedForPlayer(1);
 // Character stand-in
@@ -52,8 +51,8 @@ instance_create(objPlayer2Position.x, 608, objCharacter);
 gameField[2] = instance_create(objPlayer3Position.x, objPlayer3Position.y, scrGetGameSelectionForPlayer(2));
 gameField[2].player = global.playerManager.playerControls[2];
 scrSetPlayerControls(gameField[2].player, INPUT_KEYBOARD, 0, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
-gameField[2].baseSpeed = scrGetGameSpeedForPlayer(1);
-gameField[2].currentSpeed = scrGetGameSpeedForPlayer(1);
+gameField[2].baseSpeed = scrGetGameSpeedForPlayer(2);
+gameField[2].currentSpeed = scrGetGameSpeedForPlayer(2);
 // Character stand-in
 instance_create(objPlayer3Position.x, 608, objCharacter);
 
@@ -61,8 +60,8 @@ instance_create(objPlayer3Position.x, 608, objCharacter);
 gameField[3] = instance_create(objPlayer4Position.x, objPlayer4Position.y, scrGetGameSelectionForPlayer(3));
 gameField[3].player = global.playerManager.playerControls[3];
 scrSetPlayerControls(gameField[3].player, INPUT_KEYBOARD, 0, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
-gameField[3].baseSpeed = scrGetGameSpeedForPlayer(1);
-gameField[3].currentSpeed = scrGetGameSpeedForPlayer(1);
+gameField[3].baseSpeed = scrGetGameSpeedForPlayer(3);
+gameField[3].currentSpeed = scrGetGameSpeedForPlayer(3);
 // Character stand-in
 instance_create(objPlayer4Position.x, 608, objCharacter);
 

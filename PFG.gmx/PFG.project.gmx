@@ -28,7 +28,9 @@
   <scripts name="scripts">
     <scripts name="GameList">
       <script>scripts\scrGetFirstEnabledGame.gml</script>
+      <script>scripts\scrGetLastEnabledGame.gml</script>
       <script>scripts\scrGetNextEnabledGame.gml</script>
+      <script>scripts\scrGetPrevEnabledGame.gml</script>
     </scripts>
     <scripts name="Game Selection">
       <script>scripts\scrGetGameSelectionForPlayer.gml</script>
@@ -83,7 +85,7 @@
     </objects>
     <objects name="Game Select Menu">
       <object>objects\objGameSelectManager</object>
-      <object>objects\objGameSelector</object>
+      <object>objects\objSelectGame</object>
     </objects>
     <object>objects\objGameRoomManager</object>
     <objects name="Games">
@@ -91,6 +93,8 @@
       <object>objects\objGame</object>
       <objects name="TestGame">
         <object>objects\objTestGame</object>
+        <object>objects\objTestGame2</object>
+        <object>objects\objTestGame3</object>
       </objects>
       <objects name="BlockGame">
         <object>objects\objBlockGame</object>
@@ -132,8 +136,8 @@
     <room>rooms\roomGameSelect</room>
     <room>rooms\roomGameRoom</room>
   </rooms>
-  <constants number="16">
-    <constant name="GM_build_date">41964.3477201505</constant>
+  <constants number="20">
+    <constant name="GM_build_date">41966.3458795718</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
     <constant name="DEBUG">4</constant>
@@ -149,6 +153,10 @@
     <constant name="BUTTON3">6</constant>
     <constant name="DISABLED">0</constant>
     <constant name="ENABLED">1</constant>
+    <constant name="GAMEOBJECT">0</constant>
+    <constant name="MASTERENABLED">1</constant>
+    <constant name="GAMENAME">2</constant>
+    <constant name="GAMEDESCRIPTION">3</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
