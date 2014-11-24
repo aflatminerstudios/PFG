@@ -78,9 +78,9 @@ global.playerManager.persistent = true;
 globalvar gameSelectionInfo;
 
 for(var i = 0; i &lt; 4; i++) {
-  scrSetGameSelectionForPlayer(i,scrGetFirstEnabledGame());
-  scrSetGameLevelForPlayer(i,1);
-  scrSetGameSpeedForPlayer(i,2);
+  scrSetGameSelectionForPlayer(i, scrGetFirstEnabledGame());
+  scrSetGameLevelForPlayer(i, 1);
+  scrSetGameSpeedForPlayer(i, 2);
 }
 </string>
           </argument>

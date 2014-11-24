@@ -45,22 +45,26 @@ var objTestGame3Order = 3;
 gameList[objColsGameOrder,GAMEOBJECT] = objColsGame;
 gameList[objColsGameOrder,MASTERENABLED] = ENABLED;
 gameList[objColsGameOrder,GAMENAME] = "Columns Game";
-gameList[objColsGameOrder,GAMEDESCRIPTION] = "Rotate vertical columns of three to match 3 of a kind in a row.";
+gameList[objColsGameOrder,GAMEDESCRIPTION] = "Rotate and move falling vertical columns of three to match 3 of a kind in a row.";
+gameList[objColsGameOrder,GAMETHUMBNAIL] = sprColsGameThumbnail;
 
 gameList[objTestGameOrder,GAMEOBJECT] = objTestGame;
 gameList[objTestGameOrder,MASTERENABLED] = ENABLED;
 gameList[objTestGameOrder,GAMENAME] = "Test Game";
 gameList[objTestGameOrder,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
+gameList[objTestGameOrder,GAMETHUMBNAIL] = sprTestGameThumbnail;
 
 gameList[objTestGame2Order,GAMEOBJECT] = objTestGame2;
 gameList[objTestGame2Order,MASTERENABLED] = ENABLED;
 gameList[objTestGame2Order,GAMENAME] = "Test Game 2";
 gameList[objTestGame2Order,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
+gameList[objTestGame2Order,GAMETHUMBNAIL] = sprTestGameThumbnail;
 
 gameList[objTestGame3Order,GAMEOBJECT] = objTestGame3;
 gameList[objTestGame3Order,MASTERENABLED] = ENABLED;
 gameList[objTestGame3Order,GAMENAME] = "Test Game 3";
 gameList[objTestGame3Order,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
+gameList[objTestGame3Order,GAMETHUMBNAIL] = sprTestGameThumbnail;
 </string>
           </argument>
         </arguments>

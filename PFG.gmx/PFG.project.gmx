@@ -22,6 +22,10 @@
       <sprite>sprites\sprGeneralPenguin</sprite>
       <sprite>sprites\sprSkydiverSnake</sprite>
     </sprites>
+    <sprites name="Game Thumbnails">
+      <sprite>sprites\sprTestGameThumbnail</sprite>
+      <sprite>sprites\sprColsGameThumbnail</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -31,6 +35,9 @@
       <script>scripts\scrGetLastEnabledGame.gml</script>
       <script>scripts\scrGetNextEnabledGame.gml</script>
       <script>scripts\scrGetPrevEnabledGame.gml</script>
+      <script>scripts\scrGetGameName.gml</script>
+      <script>scripts\scrGetGameDescription.gml</script>
+      <script>scripts\scrGetGameThumbnail.gml</script>
     </scripts>
     <scripts name="Game Selection">
       <script>scripts\scrGetGameSelectionForPlayer.gml</script>
@@ -86,6 +93,7 @@
     <objects name="Game Select Menu">
       <object>objects\objGameSelectManager</object>
       <object>objects\objSelectGame</object>
+      <object>objects\objGameThumbnail</object>
     </objects>
     <object>objects\objGameRoomManager</object>
     <objects name="Games">
@@ -136,8 +144,8 @@
     <room>rooms\roomGameSelect</room>
     <room>rooms\roomGameRoom</room>
   </rooms>
-  <constants number="20">
-    <constant name="GM_build_date">41966.3458795718</constant>
+  <constants number="21">
+    <constant name="GM_build_date">41967.3076340278</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
     <constant name="DEBUG">4</constant>
@@ -157,6 +165,7 @@
     <constant name="MASTERENABLED">1</constant>
     <constant name="GAMENAME">2</constant>
     <constant name="GAMEDESCRIPTION">3</constant>
+    <constant name="GAMETHUMBNAIL">4</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
