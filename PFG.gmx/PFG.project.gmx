@@ -85,6 +85,7 @@
     <script>scripts\scrResetGame.gml</script>
     <script>scripts\scrNullScript.gml</script>
     <script>scripts\scrGenericPower.gml</script>
+    <script>scripts\scrCompareArrayEq.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Pregame Setup">

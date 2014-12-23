@@ -1,7 +1,10 @@
-///scrColsCheckMatches(block)
+///scrColsCheckMatches(block, matched)
 
 var block = argument0;
+var matched = argument1;
 var matches;
+
+
 
 with (block) {
 
@@ -13,7 +16,7 @@ if (block.host != noone) {
     ///Check up
     var collisionu = instance_place(x, y - host.blockYSize, objColBlockSettled);    
     ///Check down
-    var collisiond = instance_place(x, y + host.blockYSize, objColBlockSettled);
+    var collisiond = instance_place(x, y + host.blockYSize, objColBlockSettled);    
     
     //Check for matches w/ left match
     if (collisionl != noone && collisionl.color == color) {
@@ -27,9 +30,9 @@ if (block.host != noone) {
                 matches[i-1] = collisionl2;
                 i += 1;
                 collisionl2 = instance_place(x - (i * host.blockXSize), y, objColBlockSettled);
-            }            
-            scrMatchFound(block, matches);
-            return 1;
+            }
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
         } else {
             if (collisionr != noone && collisionr.color == color) {
                 matches[0] = collisionl;
@@ -41,8 +44,8 @@ if (block.host != noone) {
                     i += 1;
                     var collisionr2 = instance_place(x + (i * host.blockXSize), y, objColBlockSettled);
                 }            
-                scrMatchFound(block, matches);
-                return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
             }
         }
     //Check for 2+ matches to right
@@ -58,8 +61,8 @@ if (block.host != noone) {
                 i += 1;
                 collisionr2 = instance_place(x + (i * host.blockXSize), y, objColBlockSettled);
             }                    
-            scrMatchFound(block, matches);
-            return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
         } 
     }
     
@@ -76,8 +79,8 @@ if (block.host != noone) {
                 i += 1;
                 collisionu2 = instance_place(x, y  - (i * host.blockYSize), objColBlockSettled);
             }
-            scrMatchFound(block, matches);
-            return 1;        
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
         } else {
             if (collisiond != noone && collisiond.color == color) {
                 matches[0] = collisionu;
@@ -89,8 +92,8 @@ if (block.host != noone) {
                     i += 1;
                     collisiond2 = instance_place(x, y  + (i * host.blockYSize), objColBlockSettled);
                 }
-                scrMatchFound(block, matches);
-                return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
             }
         }
     }
@@ -108,8 +111,8 @@ if (block.host != noone) {
                 i += 1;
                 collisiond2 = instance_place(x, y  + (i * host.blockYSize), objColBlockSettled);
             }
-            scrMatchFound(block, matches);
-            return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
         }
     }
     
@@ -138,8 +141,8 @@ if (block.host != noone) {
                 i += 1;
                 collisionul2 = instance_place(x - (i * host.blockXSize), y - (i * host.blockYSize), objColBlockSettled);
             }            
-            scrMatchFound(block, matches);
-            return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
         } else {
             if (collisiondr != noone && collisiondr.color == color) {
                 matches[0] = collisionul;
@@ -151,8 +154,8 @@ if (block.host != noone) {
                     i += 1;
                     var collisiondr2 = instance_place(x + (i * host.blockXSize), y + (i * host.blockYSize), objColBlockSettled);
                 }            
-                scrMatchFound(block, matches);
-                return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
             }
         }
     }
@@ -170,8 +173,8 @@ if (block.host != noone) {
                 i += 1;
                 collisiondr2 = instance_place(x + (i * host.blockXSize), y + (i * host.blockYSize), objColBlockSettled);
             }                    
-            scrMatchFound(block, matches);
-            return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
         } 
     }
     
@@ -188,8 +191,8 @@ if (block.host != noone) {
                 i += 1;
                 collisionur2 = instance_place(x + (i * host.blockXSize), y  - (i * host.blockYSize), objColBlockSettled);
             }
-            scrMatchFound(block, matches);
-            return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
         } else {
             if (collisiondl != noone && collisiondl.color == color) {
                 matches[0] = collisionur;
@@ -201,8 +204,8 @@ if (block.host != noone) {
                     i += 1;
                     collisiondl2 = instance_place(x - (i * host.blockXSize), y  + (i * host.blockYSize), objColBlockSettled);
                 }
-                scrMatchFound(block, matches);
-                return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);
             }
         }
     }
@@ -220,8 +223,8 @@ if (block.host != noone) {
                 i += 1;
                 collisiondl2 = instance_place(x - (i * host.blockXSize), y  + (i * host.blockYSize), objColBlockSettled);
             }
-            scrMatchFound(block, matches);
-            return 1;
+            matches[i - 1] = block;
+            matched = scrMatchFound(block.host, matches, matched);        
         }
     }
     
@@ -231,4 +234,4 @@ if (block.host != noone) {
 }
 }
 
-return 0;
+return matched;

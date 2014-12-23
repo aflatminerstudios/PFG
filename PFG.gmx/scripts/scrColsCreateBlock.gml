@@ -22,4 +22,3 @@ if (collision_rectangle(l,t,r,b,objColBlock,true,true) != noone){
     block.host = game.id;
 }
 
-

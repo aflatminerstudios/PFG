@@ -183,9 +183,28 @@ if (!hasActiveColumn &amp;&amp; gameAlive) {
             <string>///Check for matches
 var hostId = self.id;
 
+var matched;
+matched[0] = -100;
+
 with (objColBlockSettled) {
     if(host == hostId)
-      scrColsCheckMatches(self.id);
+      matched = scrColsCheckMatches(self.id, matched);
+}
+
+
+if (is_array(matched)) {
+    var h = array_length_1d(matched);
+    
+        
+    for (i = 0; i &lt; h; ++i) {
+        var blocks = matched[i];
+        for (j = 0; j &lt; array_length_1d(blocks); ++j) {
+            var block = blocks[j];
+            with (block) {
+                instance_destroy();
+            }
+        }
+    }
 }
 </string>
           </argument>
