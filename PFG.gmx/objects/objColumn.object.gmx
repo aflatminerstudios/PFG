@@ -92,7 +92,7 @@ if (host != noone) {
     //Stop column
     if (position_meeting(x, y + 1, objColBlockSettled) || y = host.y + host.fieldHeight) {
     
-        if (y &lt;= (host.y + 10)) {
+        if (y &lt;= (host.y + host.blockYSize + host.blockYSize)) {
             host.gameAlive = false;            
             show_debug_message("Lost block game");
         }    
