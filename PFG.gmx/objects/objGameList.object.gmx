@@ -36,10 +36,11 @@
 
 // Ordering that can be modified easily, starting at 0
 // (Check what happens if there is a gap in array --  Micha Check)
-var objTestGameOrder = 1;
 var objColsGameOrder = 0;
-var objTestGame2Order = 2;
-var objTestGame3Order = 3;
+var objPipeGameOrder = 1;
+var objTestGameOrder = 2;
+var objTestGame2Order = 3;
+var objTestGame3Order = 4;
 
 // Game list array (see above)
 gameList[objColsGameOrder,GAMEOBJECT] = objColsGame;
@@ -65,6 +66,12 @@ gameList[objTestGame3Order,MASTERENABLED] = ENABLED;
 gameList[objTestGame3Order,GAMENAME] = "Test Game 3";
 gameList[objTestGame3Order,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
 gameList[objTestGame3Order,GAMETHUMBNAIL] = sprTestGameThumbnail;
+
+gameList[objPipeGameOrder,GAMEOBJECT] = objPipeGame;
+gameList[objPipeGameOrder,MASTERENABLED] = ENABLED;
+gameList[objPipeGameOrder,GAMENAME] = "Pipe Game";
+gameList[objPipeGameOrder,GAMEDESCRIPTION] = "Get the liquid through the pipes.";
+gameList[objPipeGameOrder,GAMETHUMBNAIL] = sprTestGameThumbnail;
 </string>
           </argument>
         </arguments>

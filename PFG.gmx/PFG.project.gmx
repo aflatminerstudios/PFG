@@ -26,6 +26,10 @@
       <sprite>sprites\sprTestGameThumbnail</sprite>
       <sprite>sprites\sprColsGameThumbnail</sprite>
     </sprites>
+    <sprites name="PipeGame">
+      <sprite>sprites\sprCursor</sprite>
+      <sprite>sprites\sprPipeBlock</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -38,6 +42,30 @@
       <script>scripts\scrGetGameName.gml</script>
       <script>scripts\scrGetGameDescription.gml</script>
       <script>scripts\scrGetGameThumbnail.gml</script>
+    </scripts>
+    <scripts name="Games">
+      <scripts name="BlockGame">
+        <script>scripts\scrBlockFall.gml</script>
+        <script>scripts\scrBlockAttackMonster.gml</script>
+        <script>scripts\scrCheckLine.gml</script>
+        <script>scripts\scrCreateBlockBoard.gml</script>
+        <script>scripts\scrBlockGainPower.gml</script>
+      </scripts>
+      <scripts name="TestGame">
+        <script>scripts\scrCreateTestBoard.gml</script>
+        <script>scripts\scrTestGameReceiveAttack.gml</script>
+      </scripts>
+      <scripts name="ColsGame">
+        <script>scripts\scrMatchFound.gml</script>
+        <script>scripts\scrCreateColsBoard.gml</script>
+        <script>scripts\scrColsCreateBlock.gml</script>
+        <script>scripts\scrColsCheckMatches.gml</script>
+        <script>scripts\scrColsAttack.gml</script>
+      </scripts>
+      <scripts name="PipeGame">
+        <script>scripts\scrCreatePipeGameBoard.gml</script>
+        <script>scripts\scrPipeGameReceiveAttack.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Game Selection">
       <script>scripts\scrGetGameSelectionForPlayer.gml</script>
@@ -53,23 +81,6 @@
     <scripts name="BattleMinimap">
       <script>scripts\scrAddTankToBattleMinimap.gml</script>
       <script>scripts\scrCreateWall.gml</script>
-    </scripts>
-    <scripts name="TestGame">
-      <script>scripts\scrCreateTestBoard.gml</script>
-    </scripts>
-    <scripts name="BlockGame">
-      <script>scripts\scrBlockFall.gml</script>
-      <script>scripts\scrBlockAttackMonster.gml</script>
-      <script>scripts\scrCheckLine.gml</script>
-      <script>scripts\scrCreateBlockBoard.gml</script>
-      <script>scripts\scrBlockGainPower.gml</script>
-    </scripts>
-    <scripts name="ColsGame">
-      <script>scripts\scrMatchFound.gml</script>
-      <script>scripts\scrCreateColsBoard.gml</script>
-      <script>scripts\scrColsCreateBlock.gml</script>
-      <script>scripts\scrColsCheckMatches.gml</script>
-      <script>scripts\scrColsAttack.gml</script>
     </scripts>
     <scripts name="PlayerControls">
       <script>scripts\scrSetPlayerControls.gml</script>
@@ -117,6 +128,11 @@
         <object>objects\objColBlock</object>
         <object>objects\objColBlockSettled</object>
       </objects>
+      <objects name="PipeGame">
+        <object>objects\objPipeGame</object>
+        <object>objects\objCursor</object>
+        <object>objects\objPipeBlock</object>
+      </objects>
     </objects>
     <object>objects\objBlock</object>
     <objects name="Battle Minimap">
@@ -146,7 +162,7 @@
     <room>rooms\roomGameRoom</room>
   </rooms>
   <constants number="21">
-    <constant name="GM_build_date">41967.3076340278</constant>
+    <constant name="GM_build_date">41977.0195608218</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="null">"null"</constant>
     <constant name="DEBUG">4</constant>

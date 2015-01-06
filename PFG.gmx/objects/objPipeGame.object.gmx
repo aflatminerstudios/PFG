@@ -25,103 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Setup default game variables
-gameName = scrGetGameName(objColsGame);//"Columns"
+            <string>/// Setup specific game variables
+event_inherited(); // Run parent create first
+
+gameName = scrGetGameName(objPipeGame);
 character = noone;
 player = noone;
-baseSpeed = 5;
+baseSpeed = 1;
 baseDifficulty = 1;
-currentSpeed = 5;
-currentDifficulty = 1;
+currentSpeed = baseSpeed;
+currentDifficulty = baseDifficulty;
 
 fieldWidth = 256;
 fieldHeight = 480;
 
-gridXMax = 8;
-gridYMax = 15;
-blockXSize = 32;
-blockYSize = 32;
-
-gameAlive = true;
-starPower = 0;
-
-// Functions called outside the Game Object;
-resetGame = scrCreateColsBoard; // set by game
-sendMonsterAttack = scrColsCreateBlock; // set by game
-gainStarPower = scrGenericPower; // set by game
+// Functions called outside the Game Object
+resetGame = scrCreatePipeGameBoard; // set by game
+sendMonsterAttack = scrPipeGameReceiveAttack; // set by game
+gainStarPower = scrNullScript; // set by game
 addScore = scrNullScript; // set by player
-sendAttack = scrColsAttack; // set by game
+sendAttack = scrNullScript; // set by game
 
+cursor = noone;
 
-show_debug_message("objColsGame Create 1 finished.");
-
-randomize();
-alarm[0] = 1;
-matches = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Send attack (temporary stand-in)
-scrAttackGame(self.id);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Move items down each tick
-
-var g = self.id;
-
-with (objColumn) {
-    if (host != noone &amp;&amp; host.id = g) {
-        y += 8;
-    } 
-}
-
-
-with (objColFallingBlock) {
-    if (host != noone &amp;&amp; host.id = g) {
-        y += 8;
-    } 
-}
-
-alarm[0] = (room_speed / 5)/currentSpeed;
+debug_log("objPipeGame Create 1 finished.");
 
 </string>
           </argument>
@@ -145,22 +72,28 @@ alarm[0] = (room_speed / 5)/currentSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create new column
-var hostId = self.id;
+            <string>/// Move cursor via player controls
 
-var hasActiveColumn = false;
-
-with(objColumn) {
-    if(host == hostId)
-        hasActiveColumn = true;
+if (scrCheckButtonPressed(player, LEFT)) {
+  if(cursor.x &gt;= x + cursor.sprite_width)
+    cursor.x -= cursor.sprite_width;
 }
 
-if (!hasActiveColumn &amp;&amp; gameAlive) {
-    var i = irandom(gridXMax - 1);
-    var coords = scrGridToScreen(i, gridYMax, self);
-    var c = instance_create(coords[0], coords[1], objColumn);
-    c.host = self.id;
+if (scrCheckButtonPressed(player, RIGHT)) {
+  if(cursor.x &lt; (x + fieldWidth) - cursor.sprite_width)
+    cursor.x += cursor.sprite_width;
 }
+
+if (scrCheckButtonPressed(player, UP)) {
+  if(cursor.y &gt;= y + cursor.sprite_height)
+    cursor.y -= cursor.sprite_height;
+}
+
+if (scrCheckButtonPressed(player, DOWN)) {
+  if(cursor.y &lt; (y + fieldHeight) - cursor.sprite_height)
+    cursor.y += cursor.sprite_height;
+}
+
 </string>
           </argument>
         </arguments>
@@ -181,31 +114,12 @@ if (!hasActiveColumn &amp;&amp; gameAlive) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Check for matches
-var hostId = self.id;
+            <string>/// Drop random piece at cursor position
 
-var matched;
-matched[0] = -100;
-
-with (objColBlockSettled) {
-    if(host == hostId)
-      matched = scrColsCheckMatches(self.id, matched);
-}
-
-
-if (is_array(matched)) {
-    var h = array_length_1d(matched);
-    
-        
-    for (i = 0; i &lt; h; ++i) {
-        var blocks = matched[i];
-        for (j = 0; j &lt; array_length_1d(blocks); ++j) {
-            var block = blocks[j];
-            with (block) {
-                instance_destroy();
-            }
-        }
-    }
+if (scrCheckButtonPressed(player, BUTTON1)) {
+  // Drop piece in place where you are
+  var newBlock = instance_create(cursor.x, cursor.y, objPipeBlock);
+  newBlock.host = self.id;
 }
 </string>
           </argument>
@@ -229,63 +143,7 @@ if (is_array(matched)) {
         <arguments>
           <argument>
             <kind>13</kind>
-            <string>16776960</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>511</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_rectangle</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>-1</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>-1</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>fieldWidth + 1</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>fieldHeight + 1</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>524</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_color</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>13</kind>
-            <string>8421504</string>
+            <string>64</string>
           </argument>
         </arguments>
       </action>
@@ -327,29 +185,57 @@ if (is_array(matched)) {
       </action>
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>524</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_color</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>1</kind>
-            <string>if (!gameAlive) {
-    depth = -10;
-    draw_set_alpha(0.5);
-    draw_set_color(c_red);
-    draw_rectangle(x, y, x + fieldWidth, y + fieldHeight, false);
-    draw_set_alpha(1);
-    depth = 20;
-}
-</string>
+            <kind>13</kind>
+            <string>16777215</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>511</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_rectangle</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>fieldWidth</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>fieldHeight</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
           </argument>
         </arguments>
       </action>

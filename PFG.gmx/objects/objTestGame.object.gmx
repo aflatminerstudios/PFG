@@ -28,7 +28,7 @@
             <string>/// Setup specific game variables
 event_inherited(); // Run parent create first
 
-gameName = "Test Game"
+gameName = scrGetGameName(objTestGame);//"Test Game"
 character = noone;
 player = noone;
 baseSpeed = 1;
@@ -41,7 +41,7 @@ fieldHeight = 480;
 
 // Functions called outside the Game Object
 resetGame = scrCreateTestBoard; // set by game
-sendMonsterAttack = scrNullScript; // set by game
+sendMonsterAttack = scrTestGameReceiveAttack; // set by game
 gainStarPower = scrNullScript; // set by game
 addScore = scrNullScript; // set by player
 sendAttack = scrNullScript; // set by game
