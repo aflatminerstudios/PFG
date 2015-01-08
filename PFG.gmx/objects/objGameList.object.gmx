@@ -37,10 +37,11 @@
 // Ordering that can be modified easily, starting at 0
 // (Check what happens if there is a gap in array --  Micha Check)
 var objColsGameOrder = 0;
-var objPipeGameOrder = 1;
-var objTestGameOrder = 2;
-var objTestGame2Order = 3;
-var objTestGame3Order = 4;
+var objPokerGameOrder = 1;
+var objPipeGameOrder = 2;
+var objTestGameOrder = 3;
+var objTestGame2Order = 4;
+var objTestGame3Order = 5;
 
 // Game list array (see above)
 gameList[objColsGameOrder,GAMEOBJECT] = objColsGame;
@@ -70,8 +71,14 @@ gameList[objTestGame3Order,GAMETHUMBNAIL] = sprTestGameThumbnail;
 gameList[objPipeGameOrder,GAMEOBJECT] = objPipeGame;
 gameList[objPipeGameOrder,MASTERENABLED] = ENABLED;
 gameList[objPipeGameOrder,GAMENAME] = "Pipe Game";
-gameList[objPipeGameOrder,GAMEDESCRIPTION] = "Get the liquid through the pipes.";
+gameList[objPipeGameOrder,GAMEDESCRIPTION] = "(Pre-Alpha) Get the liquid through the pipes.";
 gameList[objPipeGameOrder,GAMETHUMBNAIL] = sprTestGameThumbnail;
+
+gameList[objPokerGameOrder,GAMEOBJECT] = objPokerGame;
+gameList[objPokerGameOrder,MASTERENABLED] = ENABLED;
+gameList[objPokerGameOrder,GAMENAME] = "Poker Game";
+gameList[objPokerGameOrder,GAMEDESCRIPTION] = "(Pre-Alpha) Move blocks to build connected poker hands.";
+gameList[objPokerGameOrder,GAMETHUMBNAIL] = sprTestGameThumbnail;
 </string>
           </argument>
         </arguments>

@@ -13,6 +13,8 @@
     <sprite>sprites\sprTank1</sprite>
     <sprite>sprites\sprMonster1</sprite>
     <sprite>sprites\sprBlock</sprite>
+    <sprite>sprites\sprGenericCursor</sprite>
+    <sprite>sprites\sprPokerCursor</sprite>
     <sprite>sprites\sprKwaken</sprite>
     <sprite>sprites\sprWall</sprite>
     <sprite>sprites\sprColumn</sprite>
@@ -65,6 +67,10 @@
       <scripts name="PipeGame">
         <script>scripts\scrCreatePipeGameBoard.gml</script>
         <script>scripts\scrPipeGameReceiveAttack.gml</script>
+      </scripts>
+      <scripts name="PokerGame">
+        <script>scripts\scrCreatePokerBoard.gml</script>
+        <script>scripts\scrPokerGameReceiveAttack.gml</script>
       </scripts>
     </scripts>
     <scripts name="Game Selection">
@@ -132,6 +138,11 @@
         <object>objects\objPipeGame</object>
         <object>objects\objCursor</object>
         <object>objects\objPipeBlock</object>
+      </objects>
+      <objects name="PokerGame">
+        <object>objects\objPokerGame</object>
+        <object>objects\objPokerBlock</object>
+        <object>objects\objPokerCursor</object>
       </objects>
     </objects>
     <object>objects\objBlock</object>
