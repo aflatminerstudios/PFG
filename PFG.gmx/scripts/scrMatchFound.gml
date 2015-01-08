@@ -12,11 +12,17 @@ for (var i = 0; i < h; ++i) {
         return matched;
 }
 
+host.curMatches += 1;
 host.matches += 1;
+host.blockMatches += h;
 
-while (host.matches >= 5) {
+if (h > 3) {
+    host.bigMatches += 1;
+}
+
+while (host.curMatches >= 5) {
     scrSendAttack(host);
-    host.matches -= 5;
+    host.curMatches -= 5;
 }
 
 matched[h] = matches;
