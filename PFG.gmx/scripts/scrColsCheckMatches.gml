@@ -1,5 +1,9 @@
 ///scrColsCheckMatches(block, matched)
 
+//Possible fixes for later:
+//May sometimes be finding "short" matches.  Getting checked for in scrMatchFound, but would be better if never found
+
+
 var block = argument0;
 var matched = argument1;
 var matches;
