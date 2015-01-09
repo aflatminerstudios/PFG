@@ -28,7 +28,7 @@
             <string>/// Setup specific game variables
 event_inherited(); // Run parent create first
 
-gameName = scrGetGameName(objTestGame);//"Test Game"
+gameName = scrGetGameName(objPokerGame);
 character = noone;
 player = noone;
 baseSpeed = 1;
@@ -39,21 +39,48 @@ currentDifficulty = baseDifficulty;
 fieldWidth = 256;
 fieldHeight = 480;
 
-gridXMax = 8;
-gridYMax = 15;
-blockXSize = 32;
-blockYSize = 32;
+gridXMax = 5;
+gridYMax = 10;
+blockXSize = 48;
+blockYSize = 48;
 
-// Functions called outside the Game Object
-resetGame = scrCreatePokerBoard; // set by game
-sendMonsterAttack = scrPokerGameReceiveAttack; // set by game
-gainStarPower = scrNullScript; // set by game
-addScore = scrNullScript; // set by player
-sendAttack = scrNullScript; // set by game
+blockGrid = ds_grid_create(gridXMax, gridYMax);
+cursor = noone;
+
+// Functions called from outside the Game Object
+resetGame = scrCreatePokerBoard;
+sendMonsterAttack = scrPokerGameReceiveAttack;
+gainStarPower = scrNullScript; // not set yet
+addScore = scrNullScript; // not set yet
+sendAttack = scrNullScript; // not set yet
 
 debug_log("I am Poker Game #" + string(self.id) + ". (objPokerGame Create)");
 debug_log("objPokerGame Create 1 finished.");
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy blockGrid object
+ds_grid_destroy(blockGrid);
 </string>
           </argument>
         </arguments>
@@ -78,24 +105,46 @@ debug_log("objPokerGame Create 1 finished.");
             <kind>1</kind>
             <string>/// Move cursor via player controls
 
+// Currently used only for moving cards around (i.e. when one is in hand)
+var oldXPos = cursor.gridXPos;
+var oldYPos = cursor.gridYPos;
+
 if (scrCheckButtonPressed(player, LEFT)) {
-  if(cursor.x &gt;= x + cursor.sprite_width)
-    cursor.x -= cursor.sprite_width;
+  if(cursor.gridXPos - 1 &gt;= 0)
+    cursor.gridXPos -= 1;
 }
 
 if (scrCheckButtonPressed(player, RIGHT)) {
-  if(cursor.x &lt; (x + fieldWidth) - cursor.sprite_width)
-    cursor.x += cursor.sprite_width;
+  if(cursor.gridXPos + 1 &lt; gridXMax)
+    cursor.gridXPos += 1;
 }
 
 if (scrCheckButtonPressed(player, UP)) {
-  if(cursor.y - cursor.sprite_height &gt;= y + cursor.sprite_height)
-    cursor.y -= cursor.sprite_height;
+  if(cursor.gridYPos - 1 &gt;= 0)
+    cursor.gridYPos -= 1;
 }
 
 if (scrCheckButtonPressed(player, DOWN)) {
-  if(cursor.y - cursor.sprite_height &lt; (y + fieldHeight) - cursor.sprite_height)
-    cursor.y += cursor.sprite_height;
+  if(cursor.gridYPos + 1 &lt; gridYMax)
+    cursor.gridYPos += 1;
+}
+
+cursor.x = cursor.gridXPos*blockXSize + x;  // Convert to use function --  Micha TODO
+cursor.y = cursor.gridYPos*blockYSize + y;
+
+// If the cursor moved
+if(cursor.gridXPos != oldXPos || cursor.gridYPos != oldYPos) {
+  // Move held card (swap with new position)
+  if(cursor.isHolding) {
+    var heldCard = blockGrid[# oldXPos, oldYPos];
+    var bumpedCard = blockGrid[# cursor.gridXPos, cursor.gridYPos];
+    scrMovePokerCard(heldCard, cursor.gridXPos, cursor.gridYPos, true);
+    scrMovePokerCard(bumpedCard, oldXPos, oldYPos, true);
+    
+    // update location on screen for held card
+    heldCard.x = cursor.x;
+    heldCard.y = cursor.y;
+  }
 }
 
 </string>
@@ -118,9 +167,24 @@ if (scrCheckButtonPressed(player, DOWN)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Send tank using button 1
+            <string>/// Pick up/put down card using button1
 if (scrCheckButtonPressed(player, BUTTON1)) {
-  scrAddTankToBattleMinimap(objTank1);
+  var isNowHoldingCard = cursor.isHolding;
+  var pokerCard = blockGrid[# cursor.gridXPos, cursor.gridYPos];
+  with (pokerCard) {
+    if (isHeld) {
+      isHeld = false;
+      isNowHoldingCard = false;
+    } else {
+      isHeld = true;
+      isNowHoldingCard = true;
+    }
+  }
+  cursor.isHolding = isNowHoldingCard;
+  if(isNowHoldingCard)
+    cursor.image_index = 1;
+  else
+    cursor.image_index = 0;
 }
 </string>
           </argument>

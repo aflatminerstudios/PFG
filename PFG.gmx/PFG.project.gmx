@@ -14,7 +14,6 @@
     <sprite>sprites\sprMonster1</sprite>
     <sprite>sprites\sprBlock</sprite>
     <sprite>sprites\sprGenericCursor</sprite>
-    <sprite>sprites\sprPokerCursor</sprite>
     <sprite>sprites\sprKwaken</sprite>
     <sprite>sprites\sprWall</sprite>
     <sprite>sprites\sprColumn</sprite>
@@ -31,6 +30,10 @@
     <sprites name="PipeGame">
       <sprite>sprites\sprCursor</sprite>
       <sprite>sprites\sprPipeBlock</sprite>
+    </sprites>
+    <sprites name="PokerGame">
+      <sprite>sprites\sprPokerBlock</sprite>
+      <sprite>sprites\sprPokerCursor</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -71,6 +74,7 @@
       <scripts name="PokerGame">
         <script>scripts\scrCreatePokerBoard.gml</script>
         <script>scripts\scrPokerGameReceiveAttack.gml</script>
+        <script>scripts\scrMovePokerCard.gml</script>
       </scripts>
     </scripts>
     <scripts name="Game Selection">
