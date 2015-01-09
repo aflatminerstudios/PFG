@@ -1,15 +1,20 @@
 ///scrCompareArrayEq(array1, array2)
-///Returns true if arrays are equal, but in different orders, false otherwise 
+///Returns true if arrays are equal, but in different orders, false otherwise
+///Also returns true if array1 is a subset of array2 
 
 //var array1 = argument0;
 var array2 = argument1;
 
+if (!is_array(argument0) || !is_array(argument1)) {
+    return false;
+}
+
 var l1 = array_length_1d(argument0);
 var l2 = array_length_1d(array2);
 
-if (l1 != l2)
+if (l1 > l2)
     return false;
-    
+
 for (var i = 0; i < l1; ++i) {
 
     ///Use @ for quicker reference

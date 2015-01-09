@@ -6,17 +6,23 @@ var matched = argument2;
 var l;
 
 var h = array_length_1d(matched);
+var h2 = array_length_1d(matches);
 
 for (var i = 0; i < h; ++i) {
     if (scrCompareArrayEq(matches, matched[i]))
         return matched;
 }
 
+if (h2 < 3) {
+    show_debug_message("ERROR: Match too small!");
+    return matched;
+}
+
 host.curMatches += 1;
 host.matches += 1;
 host.blockMatches += h;
 
-if (h > 3) {
+if (h2 > 3) {
     host.bigMatches += 1;
 }
 

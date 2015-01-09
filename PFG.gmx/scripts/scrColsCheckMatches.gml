@@ -20,7 +20,7 @@ if (block.host != noone) {
     //Check for matches w/ left match
     if ( collisionl != noone && collisionl.color == color && collisionl.host == host) {
         var collisionl2 = instance_place(x - (2 * host.blockXSize), y, objColBlockSettled);
-        if (collisionl2 != noone && collisionl2.color == color) {
+        if (collisionl2 != noone && collisionl2.color == color && collisionl2.host == host) {
             matches[0] = collisionl;
             matches[1] = collisionl2;
             var i = 3;

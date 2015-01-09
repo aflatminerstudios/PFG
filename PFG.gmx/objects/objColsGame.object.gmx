@@ -57,11 +57,18 @@ show_debug_message("objColsGame Create 1 finished.");
 
 randomize();
 alarm[0] = 1;
+
+//For stats
 matches = 0; //Number of matches
 curMatches = 0; //Number of matches since last trigger of attack
 blockMatches = 0; //Number of total blocks matched
 bigMatches = 0; //Number of matches of size &gt; 3
-multiMatches = 0;
+multiMatches = 0; //Number of T-style matches
+orders = 0; //Number of orders fulfilled
+
+//For orders
+order1 = noone;
+order2 = noone;
 </string>
           </argument>
         </arguments>
@@ -239,6 +246,13 @@ if (is_array(matched)) {
             
     for (i = 0; i &lt; h; ++i) {
         var blocks = matched[i];
+        
+        //Check for order match
+        if (is_array(blocks) &amp;&amp; order1 != noone &amp;&amp; instance_exists(order1) 
+          &amp;&amp; instance_exists(blocks[0]) &amp;&amp; order1.color == blocks[0].color) {
+            matchedOrder(self);
+        }
+        
         for (j = 0; j &lt; array_length_1d(blocks); ++j) {
             var block = blocks[j];
             with (block) {
@@ -247,6 +261,74 @@ if (is_array(matched)) {
         }
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make sure there are always two orders up
+
+var hostId = self.id;
+
+if (order1 == noone || !instance_exists(order1)) {
+    if (order2 != noone &amp;&amp; instance_exists(order2) ){
+        order1 = order2;
+        order2 = noone;
+    } else {
+        order1 = instance_create(x,y,objOrder);
+        order1.host = hostId;
+    }
+}
+
+if (order2 == noone || !instance_exists(order2)) {
+    order2 = instance_create(x,y,objOrder);
+    order2.host = hostId;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Place orders graphically into position
+
+var xSpace = 50;
+var ySpace = 75;
+
+order1.x = x + fieldWidth - (xSpace * 2);
+order1.y = y + fieldHeight + ySpace;
+
+order2.x = x + fieldWidth - xSpace;
+order2.y = y + fieldHeight + ySpace;
 </string>
           </argument>
         </arguments>
@@ -389,6 +471,30 @@ if (is_array(matched)) {
     draw_set_alpha(1);
     depth = 20;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw stats temp
+
+draw_text(x + fieldWidth / 2, y + fieldHeight, matches);
+draw_text(x + fieldWidth / 2, y + fieldHeight + 50, orders);
 </string>
           </argument>
         </arguments>

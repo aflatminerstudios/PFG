@@ -13,6 +13,7 @@
     <sprite>sprites\sprTank1</sprite>
     <sprite>sprites\sprMonster1</sprite>
     <sprite>sprites\sprBlock</sprite>
+    <sprite>sprites\sprQBlock</sprite>
     <sprite>sprites\sprGenericCursor</sprite>
     <sprite>sprites\sprKwaken</sprite>
     <sprite>sprites\sprWall</sprite>
@@ -66,6 +67,7 @@
         <script>scripts\scrColsCreateBlock.gml</script>
         <script>scripts\scrColsCheckMatches.gml</script>
         <script>scripts\scrColsAttack.gml</script>
+        <script>scripts\matchedOrder.gml</script>
       </scripts>
       <scripts name="PipeGame">
         <script>scripts\scrCreatePipeGameBoard.gml</script>
@@ -137,6 +139,7 @@
         <object>objects\objColumn</object>
         <object>objects\objColBlock</object>
         <object>objects\objColBlockSettled</object>
+        <object>objects\objOrder</object>
       </objects>
       <objects name="PipeGame">
         <object>objects\objPipeGame</object>
