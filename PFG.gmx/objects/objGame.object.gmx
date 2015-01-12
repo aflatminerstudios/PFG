@@ -33,6 +33,7 @@ baseSpeed = 0;
 baseDifficulty = 0;
 currentSpeed = 0;
 currentDifficulty = 0;
+SPCost = 0;
 
 fieldWidth = 200;
 fieldHeight = 500;

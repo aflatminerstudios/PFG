@@ -67,7 +67,7 @@
         <script>scripts\scrColsCreateBlock.gml</script>
         <script>scripts\scrColsCheckMatches.gml</script>
         <script>scripts\scrColsAttack.gml</script>
-        <script>scripts\matchedOrder.gml</script>
+        <script>scripts\scrMatchedOrder.gml</script>
       </scripts>
       <scripts name="PipeGame">
         <script>scripts\scrCreatePipeGameBoard.gml</script>

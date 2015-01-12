@@ -27,11 +27,16 @@ if (h2 > 3) {
 }
 
 while (host.curMatches >= 5) {
-    scrSendAttack(host);
+//    scrSendAttack(host);
     host.curMatches -= 5;
+    scrAddTankToBattleMinimap(objTank1);
 }
 
+
+
 matched[h] = matches;
+
+host.starPower += h2;
 
 return matched;
 

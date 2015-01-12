@@ -8,6 +8,8 @@ orders += 1;
 
 game.order1 = noone;
 
+game.starPower += 3;
+
 scrSendAttack(self);
 
 with (order) {

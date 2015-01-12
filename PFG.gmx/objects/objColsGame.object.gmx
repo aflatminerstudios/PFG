@@ -33,6 +33,7 @@ baseSpeed = 5;
 baseDifficulty = 1;
 currentSpeed = 5;
 currentDifficulty = 1;
+SPCost = 10;
 
 fieldWidth = 256;
 fieldHeight = 480;
@@ -250,7 +251,7 @@ if (is_array(matched)) {
         //Check for order match
         if (is_array(blocks) &amp;&amp; order1 != noone &amp;&amp; instance_exists(order1) 
           &amp;&amp; instance_exists(blocks[0]) &amp;&amp; order1.color == blocks[0].color) {
-            matchedOrder(self);
+            scrMatchedOrder(self);
         }
         
         for (j = 0; j &lt; array_length_1d(blocks); ++j) {
@@ -329,6 +330,34 @@ order1.y = y + fieldHeight + ySpace;
 
 order2.x = x + fieldWidth - xSpace;
 order2.y = y + fieldHeight + ySpace;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for star power usage
+
+if (scrCheckButtonPressed(player, BUTTON3)) {
+    if (starPower &gt; SPCost) {
+        scrSendAttack(self.id);
+        starPower -= SPCost;
+    }  
+}
 </string>
           </argument>
         </arguments>
@@ -493,8 +522,19 @@ order2.y = y + fieldHeight + ySpace;
             <kind>1</kind>
             <string>///Draw stats temp
 
-draw_text(x + fieldWidth / 2, y + fieldHeight, matches);
-draw_text(x + fieldWidth / 2, y + fieldHeight + 50, orders);
+draw_text(x + fieldWidth / 2 + 50, y + fieldHeight + 25, "Matches: " + string(matches));
+draw_text(x + fieldWidth / 2 + 50, y + fieldHeight + 75, "Orders: " + string(orders));
+
+if (starPower &gt; SPCost) {
+    draw_set_color(c_green);
+} else {
+    draw_set_color(c_red);
+}
+
+
+draw_text(x + fieldWidth / 2 + 50, y + fieldHeight + 125, "Power: " + string(starPower));
+
+draw_set_color(c_gray);
 </string>
           </argument>
         </arguments>
