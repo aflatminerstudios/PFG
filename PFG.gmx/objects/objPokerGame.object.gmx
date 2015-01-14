@@ -41,8 +41,8 @@ fieldHeight = 480;
 
 gridXMax = 5;
 gridYMax = 10;
-blockXSize = 48;
-blockYSize = 48;
+blockXSize = 50; //48
+blockYSize = 47; //48
 
 blockGrid = ds_grid_create(gridXMax, gridYMax);
 cursor = noone;
@@ -57,6 +57,28 @@ sendAttack = scrNullScript; // not set yet
 debug_log("I am Poker Game #" + string(self.id) + ". (objPokerGame Create)");
 debug_log("objPokerGame Create 1 finished.");
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set alarm to run match checking
+alarm[0] = 2.0*room_speed;
 </string>
           </argument>
         </arguments>
@@ -81,6 +103,177 @@ debug_log("objPokerGame Create 1 finished.");
             <kind>1</kind>
             <string>/// Destroy blockGrid object
 ds_grid_destroy(blockGrid);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// (Temp) Replace missing poker blocks
+
+for(var i = 0; i &lt; ds_grid_width(blockGrid); i++) {
+  for(var j = 0; j &lt; ds_grid_height(blockGrid); j++) {
+    if( blockGrid[# i,j] == noone ) {
+      var newBlock = instance_create(0, 0, objPokerBlock);
+      newBlock.cardRank = choose("Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King");
+      newBlock.cardSuit = choose("Hearts", "Spades", "Diamonds", "Clubs");
+      scrSetPokerBlockSprite(newBlock, newBlock.cardRank, newBlock.cardSuit);
+      newBlock.host = self.id;
+      newBlock.gridXPos = i;
+      newBlock.gridYPos = j;
+      newBlock.x = i*blockXSize+x;
+      newBlock.y = j*blockYSize+y;
+      newBlock.depth = depth - 50; // Perhaps should be host.depth + myDepth? -- Micha TODO
+      blockGrid[# i,j] = newBlock;
+    }
+  }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set alarm to run match checking
+alarm[0] = 2.0*room_speed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy cards that are inPair or inMatch
+show_debug_message("Destroying matched cards.");
+
+for(var i = 0; i &lt; ds_grid_width(blockGrid); i++) {
+  for(var j = 0; j &lt; ds_grid_height(blockGrid); j++) {
+    if( blockGrid[# i,j] != noone ) {
+    
+      if(blockGrid[# i,j].inPair) {
+        with(blockGrid[# i,j]) {
+          instance_destroy();  
+        }
+        blockGrid[# i,j] = noone;
+      }
+      
+    }
+  }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set alarm to run block replacement
+alarm[2] = .3*room_speed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// (Temp) Check for poker matches
+scrCheckForPokerHands(self);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set alarm to remove matches
+alarm[1] = .1*room_speed;
 </string>
           </argument>
         </arguments>
@@ -185,6 +378,30 @@ if (scrCheckButtonPressed(player, BUTTON1)) {
     cursor.image_index = 1;
   else
     cursor.image_index = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// (Temp) Check matches using button3
+if (scrCheckButtonPressed(player, BUTTON3)) {
+  scrCheckForPokerHands(self);
 }
 </string>
           </argument>
@@ -301,6 +518,111 @@ if (scrCheckButtonPressed(player, BUTTON1)) {
           <argument>
             <kind>4</kind>
             <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="99">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// (Temp) Replace missing poker blocks
+
+for(var i = 0; i &lt; ds_grid_width(blockGrid); i++) {
+  for(var j = 0; j &lt; ds_grid_height(blockGrid); j++) {
+    if( blockGrid[# i,j] == noone ) {
+      var newBlock = instance_create(0, 0, objPokerBlock);
+      newBlock.cardRank = choose("Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King");
+      newBlock.cardSuit = choose("Hearts", "Spades", "Diamonds", "Clubs");
+      scrSetPokerBlockSprite(newBlock, newBlock.cardRank, newBlock.cardSuit);
+      newBlock.host = self.id;
+      newBlock.gridXPos = i;
+      newBlock.gridYPos = j;
+      newBlock.x = i*blockXSize+x;
+      newBlock.y = j*blockYSize+y;
+      newBlock.depth = depth - 50; // Perhaps should be host.depth + myDepth? -- Micha TODO
+      blockGrid[# i,j] = newBlock;
+    }
+  }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="98">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy cards that are inPair or inMatch
+show_debug_message("Destroying matched cards.");
+
+for(var i = 0; i &lt; ds_grid_width(blockGrid); i++) {
+  for(var j = 0; j &lt; ds_grid_height(blockGrid); j++) {
+    if( blockGrid[# i,j] != noone ) {
+    
+      if(blockGrid[# i,j].inPair) {
+        with(blockGrid[# i,j]) {
+          instance_destroy();  
+        }
+        blockGrid[# i,j] = noone;
+      }
+      
+    }
+  }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="97">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// (Temp)
+scrCheckForPokerHands(self);
+</string>
           </argument>
         </arguments>
       </action>

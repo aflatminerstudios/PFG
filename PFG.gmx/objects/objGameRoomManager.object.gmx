@@ -35,8 +35,12 @@ scrSetPlayerControls(gameField[0].player, INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_p
 gameField[0].baseSpeed = scrGetGameSpeedForPlayer(0);
 gameField[0].currentSpeed = scrGetGameSpeedForPlayer(0);
 // Character stand-in
-instance_create(objPlayer1Position.x, 608, objCharacter);
-
+character0 = instance_create(objPlayer1Position.x, 608, objCharacter);
+// Temporary character set
+if(scrGetGameSelectionForPlayer(0) == objColsGame)
+  character0.sprite_index = sprChefPig;
+else if( scrGetGameSelectionForPlayer(0) == objPokerGame)
+  character0.sprite_index = sprSkydiverSnake; // set to dog sprite when available
 
 // Game 1 (Player 2)
 gameField[1] = instance_create(objPlayer2Position.x, objPlayer2Position.y, scrGetGameSelectionForPlayer(1));
@@ -45,7 +49,12 @@ scrSetPlayerControls(gameField[1].player, INPUT_XBOX360GAMEPAD, 1, gp_padu, gp_p
 gameField[1].baseSpeed = scrGetGameSpeedForPlayer(1);
 gameField[1].currentSpeed = scrGetGameSpeedForPlayer(1);
 // Character stand-in
-instance_create(objPlayer2Position.x, 608, objCharacter);
+character1 = instance_create(objPlayer2Position.x, 608, objCharacter);
+// Temporary character set
+if(scrGetGameSelectionForPlayer(1) == objColsGame)
+  character1.sprite_index = sprChefPig;
+else if( scrGetGameSelectionForPlayer(1) == objPokerGame)
+  character1.sprite_index = sprSkydiverSnake; // set to dog sprite when available
 
 // Game 2 (Player 3)
 gameField[2] = instance_create(objPlayer3Position.x, objPlayer3Position.y, scrGetGameSelectionForPlayer(2));
@@ -54,7 +63,12 @@ scrSetPlayerControls(gameField[2].player, INPUT_KEYBOARD, 0, vk_up, vk_down, vk_
 gameField[2].baseSpeed = scrGetGameSpeedForPlayer(2);
 gameField[2].currentSpeed = scrGetGameSpeedForPlayer(2);
 // Character stand-in
-instance_create(objPlayer3Position.x, 608, objCharacter);
+character2 = instance_create(objPlayer3Position.x, 608, objCharacter);
+// Temporary character set
+if(scrGetGameSelectionForPlayer(2) == objColsGame)
+  character2.sprite_index = sprChefPig;
+else if( scrGetGameSelectionForPlayer(2) == objPokerGame)
+  character2.sprite_index = sprSkydiverSnake; // set to dog sprite when available
 
 // Game 3 (Player 4)
 gameField[3] = instance_create(objPlayer4Position.x, objPlayer4Position.y, scrGetGameSelectionForPlayer(3));
@@ -63,7 +77,12 @@ scrSetPlayerControls(gameField[3].player, INPUT_KEYBOARD, 0, ord('W'), ord('S'),
 gameField[3].baseSpeed = scrGetGameSpeedForPlayer(3);
 gameField[3].currentSpeed = scrGetGameSpeedForPlayer(3);
 // Character stand-in
-instance_create(objPlayer4Position.x, 608, objCharacter);
+character3 = instance_create(objPlayer4Position.x, 608, objCharacter);
+// Temporary character set
+if(scrGetGameSelectionForPlayer(3) == objColsGame)
+  character3.sprite_index = sprChefPig;
+else if( scrGetGameSelectionForPlayer(3) == objPokerGame)
+  character3.sprite_index = sprSkydiverSnake; // set to dog sprite when available
 
 // Reset all games
 for(var i = 0; i &lt; array_length_1d(gameField); i++) {

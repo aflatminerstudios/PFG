@@ -40,8 +40,6 @@ var objColsGameOrder = 0;
 var objPokerGameOrder = 1;
 var objPipeGameOrder = 2;
 var objTestGameOrder = 3;
-var objTestGame2Order = 4;
-var objTestGame3Order = 5;
 
 // Game list array (see above)
 gameList[objColsGameOrder,GAMEOBJECT] = objColsGame;
@@ -56,18 +54,6 @@ gameList[objTestGameOrder,GAMENAME] = "Test Game";
 gameList[objTestGameOrder,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
 gameList[objTestGameOrder,GAMETHUMBNAIL] = sprTestGameThumbnail;
 
-gameList[objTestGame2Order,GAMEOBJECT] = objTestGame2;
-gameList[objTestGame2Order,MASTERENABLED] = ENABLED;
-gameList[objTestGame2Order,GAMENAME] = "Test Game 2";
-gameList[objTestGame2Order,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
-gameList[objTestGame2Order,GAMETHUMBNAIL] = sprTestGameThumbnail;
-
-gameList[objTestGame3Order,GAMEOBJECT] = objTestGame3;
-gameList[objTestGame3Order,MASTERENABLED] = ENABLED;
-gameList[objTestGame3Order,GAMENAME] = "Test Game 3";
-gameList[objTestGame3Order,GAMEDESCRIPTION] = "Test game for debugging controls and attacks.";
-gameList[objTestGame3Order,GAMETHUMBNAIL] = sprTestGameThumbnail;
-
 gameList[objPipeGameOrder,GAMEOBJECT] = objPipeGame;
 gameList[objPipeGameOrder,MASTERENABLED] = ENABLED;
 gameList[objPipeGameOrder,GAMENAME] = "Pipe Game";
@@ -78,7 +64,7 @@ gameList[objPokerGameOrder,GAMEOBJECT] = objPokerGame;
 gameList[objPokerGameOrder,MASTERENABLED] = ENABLED;
 gameList[objPokerGameOrder,GAMENAME] = "Poker Game";
 gameList[objPokerGameOrder,GAMEDESCRIPTION] = "(Pre-Alpha) Move blocks to build connected poker hands.";
-gameList[objPokerGameOrder,GAMETHUMBNAIL] = sprTestGameThumbnail;
+gameList[objPokerGameOrder,GAMETHUMBNAIL] = sprPokerGameThumbnail;
 </string>
           </argument>
         </arguments>

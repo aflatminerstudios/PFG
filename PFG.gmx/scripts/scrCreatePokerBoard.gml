@@ -11,6 +11,9 @@ if(argument_count > 0){
         }
       }
       var newBlock = instance_create(0, 0, objPokerBlock);
+      newBlock.cardRank = choose("Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King");
+      newBlock.cardSuit = choose("Hearts", "Spades", "Diamonds", "Clubs");
+      scrSetPokerBlockSprite(newBlock, newBlock.cardRank, newBlock.cardSuit);
       newBlock.host = myGameInstance;
       newBlock.gridXPos = i;
       newBlock.gridYPos = j;
@@ -28,13 +31,17 @@ if(argument_count > 0){
       cursor.depth = depth - 100;
       cursor.host = self;
     }
-    cursor.gridXPos = 0;
-    cursor.gridYPos = 0;
+    cursor.gridXPos = 2;
+    cursor.gridYPos = 5;
     cursor.x = x; // Convert to use function and include offset if there is game chrome -- Micha TODO
     cursor.y = y; 
     cursor.isHolding = false;
-    cursor.image_index = 3;
+    cursor.image_index = 0;
     show_debug_message("I am Poker Game #" + string(self.id) + ". (scrCreatePokerBoard)");
   }
 }
 show_debug_message("Created Poker Board");
+
+
+
+

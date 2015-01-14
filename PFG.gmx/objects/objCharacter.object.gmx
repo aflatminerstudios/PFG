@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>sprite_index = choose(sprConstructionCat, sprChefPig, sprGeneralPenguin, sprSkydiverSnake);
+image_speed = 0;
 </string>
           </argument>
         </arguments>

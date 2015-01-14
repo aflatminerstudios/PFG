@@ -27,6 +27,7 @@
     <sprites name="Game Thumbnails">
       <sprite>sprites\sprTestGameThumbnail</sprite>
       <sprite>sprites\sprColsGameThumbnail</sprite>
+      <sprite>sprites\sprPokerGameThumbnail</sprite>
     </sprites>
     <sprites name="PipeGame">
       <sprite>sprites\sprCursor</sprite>
@@ -34,6 +35,10 @@
     </sprites>
     <sprites name="PokerGame">
       <sprite>sprites\sprPokerBlock</sprite>
+      <sprite>sprites\sprPokerBlockHearts</sprite>
+      <sprite>sprites\sprPokerBlockSpades</sprite>
+      <sprite>sprites\sprPokerBlockDiamonds</sprite>
+      <sprite>sprites\sprPokerBlockClubs</sprite>
       <sprite>sprites\sprPokerCursor</sprite>
     </sprites>
   </sprites>
@@ -77,6 +82,9 @@
         <script>scripts\scrCreatePokerBoard.gml</script>
         <script>scripts\scrPokerGameReceiveAttack.gml</script>
         <script>scripts\scrMovePokerCard.gml</script>
+        <script>scripts\scrSetPokerBlockSprite.gml</script>
+        <script>scripts\scrCheckForPokerHands.gml</script>
+        <script>scripts\scrCheckPokerBlockForPair.gml</script>
       </scripts>
     </scripts>
     <scripts name="Game Selection">
