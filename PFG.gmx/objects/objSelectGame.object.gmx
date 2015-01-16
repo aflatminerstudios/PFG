@@ -195,6 +195,9 @@ if (scrCheckButtonPressed(player, UP)) {
             <kind>1</kind>
             <string>/// Goto roomGameRoom when button 1 is pressed (Temporary)
 if (scrCheckButtonPressed(player, BUTTON1)) {
+  // Stop music
+  audio_stop_sound(sndKonstructionKittyTheme);
+  audio_stop_sound(sndSkydiveSnakeTheme);
   room_goto(roomGameRoom);
 }
 </string>

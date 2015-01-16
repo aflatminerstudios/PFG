@@ -7,6 +7,8 @@
   <sounds name="sound">
     <sound>sound\sndChirp</sound>
     <sound>sound\sndThik</sound>
+    <sound>sound\sndKonstructionKittyTheme</sound>
+    <sound>sound\sndSkydiveSnakeTheme</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprBattleMinimapLine</sprite>
