@@ -32,6 +32,7 @@ gameMenu[0] = instance_create(objPlayer1Position.x, objPlayer1Position.y, objSel
 gameMenu[0].player = global.playerManager.playerControls[0];
 scrSetPlayerControls(gameMenu[0].player, INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3); // Eventually remove --  Micha
 scrSetGameSelectionForPlayer(gameMenu[0].player.playerNumber, gameMenu[0].currentGame); // Default game type
+global.gameSelectionInfo[gameMenu[0].player.playerNumber, 3] = objConstructionCat;
 
 
 // Game 1 (Player 2)
@@ -39,21 +40,21 @@ gameMenu[1] = instance_create(objPlayer2Position.x, objPlayer2Position.y, objSel
 gameMenu[1].player = global.playerManager.playerControls[1];
 scrSetPlayerControls(gameMenu[1].player, INPUT_XBOX360GAMEPAD, 1, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);
 scrSetGameSelectionForPlayer(gameMenu[1].player.playerNumber, gameMenu[1].currentGame); // Default game type
-
+global.gameSelectionInfo[gameMenu[1].player.playerNumber, 3] = objConstructionCat;
 
 // Game 2 (Player 3)
 gameMenu[2] = instance_create(objPlayer3Position.x, objPlayer3Position.y, objSelectGame);
 gameMenu[2].player = global.playerManager.playerControls[2];
 scrSetPlayerControls(gameMenu[2].player, INPUT_KEYBOARD, 0, vk_up, vk_down, vk_left, vk_right, vk_control, vk_alt, vk_enter);
 scrSetGameSelectionForPlayer(gameMenu[2].player.playerNumber, gameMenu[2].currentGame); // Default game type
-
+global.gameSelectionInfo[gameMenu[2].player.playerNumber, 3] = objConstructionCat;
 
 // Game 3 (Player 4)
 gameMenu[3] = instance_create(objPlayer4Position.x, objPlayer4Position.y, objSelectGame);
 gameMenu[3].player = global.playerManager.playerControls[3];
 scrSetPlayerControls(gameMenu[3].player, INPUT_KEYBOARD, 0, ord('W'), ord('S'), ord('A'), ord('D'), ord('V'), ord('B'), ord('G'));
 scrSetGameSelectionForPlayer(gameMenu[3].player.playerNumber, gameMenu[3].currentGame); // Default game type
-
+global.gameSelectionInfo[gameMenu[3].player.playerNumber, 3] = objConstructionCat;
 </string>
           </argument>
         </arguments>

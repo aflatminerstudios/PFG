@@ -37,10 +37,17 @@ gameField[0].currentSpeed = scrGetGameSpeedForPlayer(0);
 // Character stand-in
 character0 = instance_create(objPlayer1Position.x, 608, objCharacter);
 // Temporary character set
-if(scrGetGameSelectionForPlayer(0) == objColsGame)
-  character0.sprite_index = sprChefPig;
+if(scrGetGameSelectionForPlayer(0) == objColsGame) {
+//  character0.sprite_index = sprChefPig;
+    with(character0){
+        instance_destroy()
+    }
+    character0 = instance_create(objPlayer1Position.x, 608, scrGetCharacterForPlayer(0));
+    scrSetCharacter(gameField[0], character0);
+}
 else if( scrGetGameSelectionForPlayer(0) == objPokerGame)
   character0.sprite_index = sprSkydiverSnake; // set to dog sprite when available
+
 
 // Game 1 (Player 2)
 gameField[1] = instance_create(objPlayer2Position.x, objPlayer2Position.y, scrGetGameSelectionForPlayer(1));
@@ -51,8 +58,14 @@ gameField[1].currentSpeed = scrGetGameSpeedForPlayer(1);
 // Character stand-in
 character1 = instance_create(objPlayer2Position.x, 608, objCharacter);
 // Temporary character set
-if(scrGetGameSelectionForPlayer(1) == objColsGame)
-  character1.sprite_index = sprChefPig;
+if(scrGetGameSelectionForPlayer(1) == objColsGame) {
+//  character1.sprite_index = sprChefPig;
+    with(character1){
+        instance_destroy()
+    }
+    character1 = instance_create(objPlayer1Position.x, 608, scrGetCharacterForPlayer(1));
+    scrSetCharacter(gameField[1], character0);
+}
 else if( scrGetGameSelectionForPlayer(1) == objPokerGame)
   character1.sprite_index = sprSkydiverSnake; // set to dog sprite when available
 
@@ -65,8 +78,14 @@ gameField[2].currentSpeed = scrGetGameSpeedForPlayer(2);
 // Character stand-in
 character2 = instance_create(objPlayer3Position.x, 608, objCharacter);
 // Temporary character set
-if(scrGetGameSelectionForPlayer(2) == objColsGame)
-  character2.sprite_index = sprChefPig;
+if(scrGetGameSelectionForPlayer(2) == objColsGame) {
+//  character2.sprite_index = sprChefPig;
+    with(character2){
+        instance_destroy()
+    }
+    character2 = instance_create(objPlayer1Position.x, 608, scrGetCharacterForPlayer(2));
+    scrSetCharacter(gameField[2], character0);
+}
 else if( scrGetGameSelectionForPlayer(2) == objPokerGame)
   character2.sprite_index = sprSkydiverSnake; // set to dog sprite when available
 
@@ -79,8 +98,14 @@ gameField[3].currentSpeed = scrGetGameSpeedForPlayer(3);
 // Character stand-in
 character3 = instance_create(objPlayer4Position.x, 608, objCharacter);
 // Temporary character set
-if(scrGetGameSelectionForPlayer(3) == objColsGame)
-  character3.sprite_index = sprChefPig;
+if(scrGetGameSelectionForPlayer(3) == objColsGame) {
+//  character3.sprite_index = sprChefPig;
+    with(character3){
+        instance_destroy()
+    }
+    character3 = instance_create(objPlayer1Position.x, 608, scrGetCharacterForPlayer(3));
+    scrSetCharacter(gameField[3], character0);
+}
 else if( scrGetGameSelectionForPlayer(3) == objPokerGame)
   character3.sprite_index = sprSkydiverSnake; // set to dog sprite when available
 
@@ -88,6 +113,7 @@ else if( scrGetGameSelectionForPlayer(3) == objPokerGame)
 for(var i = 0; i &lt; array_length_1d(gameField); i++) {
       script_execute(gameField[i].resetGame, gameField[i]); // Gives optional instance reference
 }
+
 
 </string>
           </argument>

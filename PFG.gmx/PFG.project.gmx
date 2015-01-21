@@ -47,6 +47,7 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scrSetCharacter.gml</script>
     <scripts name="GameList">
       <script>scripts\scrGetFirstEnabledGame.gml</script>
       <script>scripts\scrGetLastEnabledGame.gml</script>
@@ -90,7 +91,9 @@
       </scripts>
     </scripts>
     <scripts name="Game Selection">
+      <script>scripts\scrChangeCharacterForPlayer.gml</script>
       <script>scripts\scrGetGameSelectionForPlayer.gml</script>
+      <script>scripts\scrGetCharacterForPlayer.gml</script>
       <script>scripts\scrGetGameLevelForPlayer.gml</script>
       <script>scripts\scrGetGameSpeedForPlayer.gml</script>
       <script>scripts\scrSetGameSelectionForPlayer.gml</script>
@@ -128,6 +131,7 @@
       <object>objects\objGameSelectManager</object>
       <object>objects\objSelectGame</object>
       <object>objects\objGameThumbnail</object>
+      <object>objects\objCharSelect</object>
     </objects>
     <object>objects\objGameRoomManager</object>
     <objects name="Games">
@@ -180,9 +184,14 @@
       <object>objects\objPlayer4Position</object>
     </objects>
     <object>objects\objMonster</object>
+    <objects name="Characters">
+      <object>objects\objCharacter</object>
+      <object>objects\objChefPig</object>
+      <object>objects\objConstructionCat</object>
+      <object>objects\objGeneralPenguin</object>
+    </objects>
     <object>objects\objAttackObject</object>
     <object>objects\objKwaken</object>
-    <object>objects\objCharacter</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomSetup</room>
