@@ -34,15 +34,19 @@ gameField[0].player = global.playerManager.playerControls[0];
 scrSetPlayerControls(gameField[0].player, INPUT_XBOX360GAMEPAD, 0, gp_padu, gp_padd, gp_padl, gp_padr, gp_face1, gp_face2, gp_face3);  // Eventually remove --  Micha
 gameField[0].baseSpeed = scrGetGameSpeedForPlayer(0);
 gameField[0].currentSpeed = scrGetGameSpeedForPlayer(0);
+
 // Character stand-in
 character0 = instance_create(objPlayer1Position.x, 608, objCharacter);
 // Temporary character set
 if(scrGetGameSelectionForPlayer(0) == objColsGame) {
 //  character0.sprite_index = sprChefPig;
     with(character0){
+
+        
         instance_destroy()
     }
     character0 = instance_create(objPlayer1Position.x, 608, scrGetCharacterForPlayer(0));
+
     scrSetCharacter(gameField[0], character0);
 }
 else if( scrGetGameSelectionForPlayer(0) == objPokerGame)
@@ -64,7 +68,7 @@ if(scrGetGameSelectionForPlayer(1) == objColsGame) {
         instance_destroy()
     }
     character1 = instance_create(objPlayer2Position.x, 608, scrGetCharacterForPlayer(1));
-    scrSetCharacter(gameField[1], character0);
+    scrSetCharacter(gameField[1], character1);
 }
 else if( scrGetGameSelectionForPlayer(1) == objPokerGame)
   character1.sprite_index = sprSkydiverSnake; // set to dog sprite when available
@@ -84,7 +88,7 @@ if(scrGetGameSelectionForPlayer(2) == objColsGame) {
         instance_destroy()
     }
     character2 = instance_create(objPlayer3Position.x, 608, scrGetCharacterForPlayer(2));
-    scrSetCharacter(gameField[2], character0);
+    scrSetCharacter(gameField[2], character2);
 }
 else if( scrGetGameSelectionForPlayer(2) == objPokerGame)
   character2.sprite_index = sprSkydiverSnake; // set to dog sprite when available
@@ -104,7 +108,7 @@ if(scrGetGameSelectionForPlayer(3) == objColsGame) {
         instance_destroy()
     }
     character3 = instance_create(objPlayer4Position.x, 608, scrGetCharacterForPlayer(3));
-    scrSetCharacter(gameField[3], character0);
+    scrSetCharacter(gameField[3], character3);
 }
 else if( scrGetGameSelectionForPlayer(3) == objPokerGame)
   character3.sprite_index = sprSkydiverSnake; // set to dog sprite when available
