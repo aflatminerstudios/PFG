@@ -63,7 +63,7 @@ if(scrGetGameSelectionForPlayer(1) == objColsGame) {
     with(character1){
         instance_destroy()
     }
-    character1 = instance_create(objPlayer1Position.x, 608, scrGetCharacterForPlayer(1));
+    character1 = instance_create(objPlayer2Position.x, 608, scrGetCharacterForPlayer(1));
     scrSetCharacter(gameField[1], character0);
 }
 else if( scrGetGameSelectionForPlayer(1) == objPokerGame)
@@ -83,7 +83,7 @@ if(scrGetGameSelectionForPlayer(2) == objColsGame) {
     with(character2){
         instance_destroy()
     }
-    character2 = instance_create(objPlayer1Position.x, 608, scrGetCharacterForPlayer(2));
+    character2 = instance_create(objPlayer3Position.x, 608, scrGetCharacterForPlayer(2));
     scrSetCharacter(gameField[2], character0);
 }
 else if( scrGetGameSelectionForPlayer(2) == objPokerGame)
@@ -103,7 +103,7 @@ if(scrGetGameSelectionForPlayer(3) == objColsGame) {
     with(character3){
         instance_destroy()
     }
-    character3 = instance_create(objPlayer1Position.x, 608, scrGetCharacterForPlayer(3));
+    character3 = instance_create(objPlayer4Position.x, 608, scrGetCharacterForPlayer(3));
     scrSetCharacter(gameField[3], character0);
 }
 else if( scrGetGameSelectionForPlayer(3) == objPokerGame)
