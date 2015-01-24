@@ -48,7 +48,7 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Default character variables
+            <string>///Set up character variables
 
 attack = scrNullScript();
 </string>
